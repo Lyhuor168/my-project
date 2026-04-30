@@ -1,0 +1,52 @@
+[90m= [39m[34;4mIlluminate\Database\Eloquent\Collection[39;24m {#8615
+    [34mall[39m: [
+      [34;4mApp\Models\SchoolClass[39;24m {#8614
+        [34mid[39m: [35m1[39m,
+        [34mname[39m: [32m"[39m[32mថ្នាក់ទី១[39m[32m"[39m,
+      },
+      [34;4mApp\Models\SchoolClass[39;24m {#8613
+        [34mid[39m: [35m2[39m,
+        [34mname[39m: [32m"[39m[32mថ្នាក់ទី២[39m[32m"[39m,
+      },
+      [34;4mApp\Models\SchoolClass[39;24m {#8612
+        [34mid[39m: [35m3[39m,
+        [34mname[39m: [32m"[39m[32mថ្នាក់ទី៣[39m[32m"[39m,
+      },
+      [34;4mApp\Models\SchoolClass[39;24m {#8611
+        [34mid[39m: [35m4[39m,
+        [34mname[39m: [32m"[39m[32mថ្នាក់ទី៤[39m[32m"[39m,
+      },
+      [34;4mApp\Models\SchoolClass[39;24m {#8610
+        [34mid[39m: [35m5[39m,
+        [34mname[39m: [32m"[39m[32mថ្នាក់ទី៥[39m[32m"[39m,
+      },
+      [34;4mApp\Models\SchoolClass[39;24m {#8609
+        [34mid[39m: [35m6[39m,
+        [34mname[39m: [32m"[39m[32mថ្នាក់ទី៦[39m[32m"[39m,
+      },
+      [34;4mApp\Models\SchoolClass[39;24m {#8608
+        [34mid[39m: [35m7[39m,
+        [34mname[39m: [32m"[39m[32mថ្នាក់ទី៧[39m[32m"[39m,
+      },
+      [34;4mApp\Models\SchoolClass[39;24m {#8607
+        [34mid[39m: [35m8[39m,
+        [34mname[39m: [32m"[39m[32mថ្នាក់ទី៨[39m[32m"[39m,
+      },
+      [34;4mApp\Models\SchoolClass[39;24m {#8606
+        [34mid[39m: [35m9[39m,
+        [34mname[39m: [32m"[39m[32mថ្នាក់ទី៩[39m[32m"[39m,
+      },
+      [34;4mApp\Models\SchoolClass[39;24m {#8605
+        [34mid[39m: [35m10[39m,
+        [34mname[39m: [32m"[39m[32mថ្នាក់ទី១០[39m[32m"[39m,
+      },
+      [34;4mApp\Models\SchoolClass[39;24m {#8604
+        [34mid[39m: [35m11[39m,
+        [34mname[39m: [32m"[39m[32mថ្នាក់ទី១១[39m[32m"[39m,
+      },
+      [34;4mApp\Models\SchoolClass[39;24m {#8603
+        [34mid[39m: [35m12[39m,
+        [34mname[39m: [32m"[39m[32mថ្នាក់ទី១២[39m[32m"[39m,
+      },
+    ],
+  }
