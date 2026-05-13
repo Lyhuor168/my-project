@@ -4,22 +4,18 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration {
-    public function up(): void {
-        Schema::table('products', function (Blueprint $table) {
-            if (!Schema::hasColumn('products', 'qty')) {
-                $table->integer('qty')->default(0)->after('price');
-            }
-            if (!Schema::hasColumn('products', 'img')) {
-                $table->string('img', 100)->nullable()->after('qty');
-            }
-            if (!Schema::hasColumn('products', 'status')) {
-                $table->tinyInteger('status')->default(1)->after('img');
-            }
-        });
-    }
+   public function up(): void {
+    Schema::create('products', function (Blueprint $table) {
+        $table->id();
+        $table->string('name');
+        $table->text('description')->nullable();
+        $table->decimal('price', 8, 2);
+        $table->integer('qty')->default(0);
+        $table->timestamps();
+    });
+}
+
     public function down(): void {
-        Schema::table('products', function (Blueprint $table) {
-            $table->dropColumn(['qty', 'img', 'status']);
-        });
+        Schema::dropIfExists('products');
     }
 };

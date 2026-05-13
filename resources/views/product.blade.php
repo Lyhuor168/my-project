@@ -33,7 +33,7 @@
 
 <h1>Products</h1>
 
-{{-- Search Form --}}
+
 <form method="GET" action="{{ request()->url() }}" class="search-wrap">
     <input
         type="text"
@@ -45,7 +45,7 @@
     >
     <button type="submit" class="search-btn">🔍 Search</button>
     @if(request('search'))
-        <a href="{{ request()->url() }}" class="clear-btn">✕ Clear</a>
+        <a href="{{ request()->url() }}" class="clear-btn"> ✕ Clear</a>
     @endif
 </form>
 
@@ -125,4 +125,4 @@
 @endif
 
 </body>
-</html>
+</html> 
