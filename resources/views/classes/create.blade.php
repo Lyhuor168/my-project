@@ -1,4 +1,4 @@
-@extends('layouts.dashboard')
+@extends('layouts.app')
 @section('content')
 <div class="card border-0 shadow-sm" style="max-width:600px;margin:0 auto;">
     <div class="card-body p-4">

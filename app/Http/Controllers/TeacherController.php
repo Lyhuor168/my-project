@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\DB;
 
 class TeacherController extends Controller
 {
-    // GET /teachers — បញ្ជីគ្រូ
     public function index()
     {
         $teachers = DB::table('teachers')->latest()->get();

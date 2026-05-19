@@ -175,4 +175,11 @@ use App\Http\Controllers\SlideController;
                 Route::post('/orders/{id}/status', [OrderController::class, 'updateStatus'])->name('orders.status');
         });        
 
- 
+
+             // Attendance
+    Route::post('/attendance',         [TeacherController::class, 'store'])->name('attendance.store');
+    Route::get('/edit',                [TeacherController::class, 'edit'])->name('edit');
+    Route::put('/attendance/{id}',     [TeacherController::class, 'update'])->name('attendance.update');
+    Route::get('/report',              [TeacherController::class, 'report'])->name('report');
+
+            Route::post('/attendance/store', [AttendanceController::class, 'store']);

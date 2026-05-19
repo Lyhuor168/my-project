@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'ទំព័រដើម - Home')
+@section('title', 'Home')
 
 @section('content')
 <style>
@@ -23,7 +23,6 @@
         height: 70px; background: var(--bg-light, #f4f7fc);
         clip-path: ellipse(55% 100% at 50% 100%);
     }
-    /* Floating circles deco */
     .hm-hero-deco {
         position: absolute; border-radius: 50%;
         background: rgba(255,255,255,0.04);
@@ -206,36 +205,36 @@
             <div class="carousel-item active">
                 <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=1400&q=80" class="d-block w-100" style="object-fit:cover;height:520px;" alt="Slide 1">
                 <div class="carousel-caption d-none d-md-block" style="background:rgba(0,0,0,0.45);border-radius:12px;padding:20px 30px;">
-                    <h2 style="font-weight:800;">🎓 ប្រព័ន្ធគ្រប់គ្រងសាលា</h2>
-                    <p>គ្រប់គ្រងសិស្ស គ្រូ មុខវិជ្ជា និងវត្តមានយ៉ាងងាយស្រួល</p>
+                    <h2 style="font-weight:800;">🎓 School Management System</h2>
+                    <p>Manage students, teachers, subjects and attendance easily</p>
                 </div>
             </div>
             <div class="carousel-item">
                 <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=1400&q=80" class="d-block w-100" style="object-fit:cover;height:520px;" alt="Slide 2">
                 <div class="carousel-caption d-none d-md-block" style="background:rgba(0,0,0,0.40);border-radius:12px;padding:20px 30px;">
-                    <h2 style="font-weight:800;">👨‍🏫 គ្រូបង្រៀនជំនាញ</h2>
-                    <p>ក្រុមគ្រូមានបទពិសោធន៍ខ្ពស់ និងការបំណិនទំនើប</p>
+                    <h2 style="font-weight:800;">👨‍🏫 Skilled Teachers</h2>
+                    <p>A team of highly experienced teachers with modern skills</p>
                 </div>
             </div>
             <div class="carousel-item">
                 <img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=1400&q=80" class="d-block w-100" style="object-fit:cover;height:520px;" alt="Slide 3">
                 <div class="carousel-caption d-none d-md-block" style="background:rgba(0,0,0,0.40);border-radius:12px;padding:20px 30px;">
-                    <h2 style="font-weight:800;">📚 មុខវិជ្ជាច្រើន</h2>
-                    <p>មុខវិជ្ជាជ្រើសរើសតាមតម្រូវការ និងចំណាប់អារម្មណ៍</p>
+                    <h2 style="font-weight:800;">📚 Many Subjects</h2>
+                    <p>Subjects selected based on needs and interests</p>
                 </div>
             </div>
             <div class="carousel-item">
                 <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1400&q=80" class="d-block w-100" style="object-fit:cover;height:520px;" alt="Slide 4">
                 <div class="carousel-caption d-none d-md-block" style="background:rgba(0,0,0,0.40);border-radius:12px;padding:20px 30px;">
-                    <h2 style="font-weight:800;">🤝 សិស្សរៀនជាក្រុម</h2>
-                    <p>បង្កើតបរិយាកាសសិក្សាសហការ និងទំនុកចិត្ត</p>
+                    <h2 style="font-weight:800;">🤝 Students Learn in Groups</h2>
+                    <p>Create a collaborative and trustful learning environment</p>
                 </div>
             </div>
             <div class="carousel-item">
                 <img src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=1400&q=80" class="d-block w-100" style="object-fit:cover;height:520px;" alt="Slide 5">
                 <div class="carousel-caption d-none d-md-block" style="background:rgba(0,0,0,0.40);border-radius:12px;padding:20px 30px;">
-                    <h2 style="font-weight:520;">🏫 សាលារៀនទំនើប</h2>
-                    <p>បរិស្ថានសិក្សាទំនើប ស្អាត និងមានសុវត្ថិភាព</p>
+                    <h2 style="font-weight:520;">🏫 Modern School</h2>
+                    <p>Modern, clean and safe learning environment</p>
                 </div>
             </div>
         </div>
@@ -264,16 +263,16 @@
                 <i class="fas fa-tachometer-alt"></i> Dashboard
             </a>
             <a href="/students" style="background:#ffca28;color:#1a237e;padding:10px 28px;border-radius:6px;font-weight:700;text-decoration:none;font-size:0.9rem;display:inline-flex;align-items:center;gap:8px;">
-                <i class="fas fa-user-graduate"></i> សិស្ស
+                <i class="fas fa-user-graduate"></i> Students
             </a>
             <a href="/teachers" style="background:rgba(255,255,255,0.15);color:#fff;border:1.5px solid rgba(255,255,255,0.5);padding:10px 28px;border-radius:6px;font-weight:700;text-decoration:none;font-size:0.9rem;display:inline-flex;align-items:center;gap:8px;">
-                <i class="fas fa-chalkboard-teacher"></i> គ្រូ
+                <i class="fas fa-chalkboard-teacher"></i> Teachers
             </a>
             <a href="/classes" style="background:rgba(255,255,255,0.15);color:#fff;border:1.5px solid rgba(255,255,255,0.5);padding:10px 28px;border-radius:6px;font-weight:700;text-decoration:none;font-size:0.9rem;display:inline-flex;align-items:center;gap:8px;">
-                <i class="fas fa-school"></i> ថ្នាក់
+                <i class="fas fa-school"></i> Classes
             </a>
             <a href="/courses" style="background:rgba(255,255,255,0.15);color:#fff;border:1.5px solid rgba(255,255,255,0.5);padding:10px 28px;border-radius:6px;font-weight:700;text-decoration:none;font-size:0.9rem;display:inline-flex;align-items:center;gap:8px;">
-                <i class="fas fa-book-open"></i> មុខវិជ្ជា
+                <i class="fas fa-book-open"></i> Courses
             </a>
             @endauth
         </div>
@@ -285,13 +284,13 @@
         <div class="hm-hero-deco hm-hero-deco-2"></div>
         <div class="hm-hero-inner">
             <div class="hm-hero-badge">🎓 School Management System 2026</div>
-            <h1>ប្រព័ន្ធ​គ្រប់​គ្រង​<br><span class="gold">សាលា​ IT</span> ទំនើប</h1>
-            <p>គ្រប់​គ្រង​ សិស្ស​ គ្រូ​ ហើយ​ មុខ​ វិជ្ជា​ ជាមួយ​ ប្រព័ន្ធ​ Laravel ​ ដ៏​ ទំនើប​ — ងាយ​ ស្រួល​ ប្រើ​  ២​ ភាសា​ ។</p>
+            <h1>Modern <span class="gold">IT School</span> Management System</h1>
+            <p>Manage students, teachers and courses with a modern Laravel system — easy to use in 2 languages.</p>
             <div class="hm-hero-btns">
-                <a href="/students" class="hm-btn-gold"><i class="fas fa-user-graduate"></i> ចូល​ មើល​ សិស្ស</a>
-                <a href="/services" class="hm-btn-outline"><i class="fas fa-concierge-bell"></i> សេវា​ កម្ម</a>
-                <a href="/contact" class="hm-btn-outline"><i class="fas fa-envelope"></i> ទំនាក់ទំនង</a>    
-                <a href="/about" class="hm-btn-outline"><i class="fas fa-info-circle"></i> អំពីយើង</a>
+                <a href="/students" class="hm-btn-gold"><i class="fas fa-user-graduate"></i> View Students</a>
+                <a href="/services" class="hm-btn-outline"><i class="fas fa-concierge-bell"></i> Services</a>
+                <a href="/contact" class="hm-btn-outline"><i class="fas fa-envelope"></i> Contact</a>
+                <a href="/about" class="hm-btn-outline"><i class="fas fa-info-circle"></i> About Us</a>
             </div>
         </div>
     </div>
@@ -302,37 +301,37 @@
             <a href="/students" class="hm-stat" style="--sc:#1a237e;--sb:#e8eaf6;">
                 <div class="hm-stat-ico"><i class="fas fa-user-graduate"></i></div>
                 <div class="hm-stat-num">{{ $totalStudents }}</div>
-                <div class="hm-stat-lbl">សិស្សសរុប</div>
+                <div class="hm-stat-lbl">Total Students</div>
             </a>
             <a href="/teachers" class="hm-stat" style="--sc:#00695c;--sb:#e0f2f1;transition-delay:.07s">
                 <div class="hm-stat-ico"><i class="fas fa-chalkboard-teacher"></i></div>
                 <div class="hm-stat-num">{{ $totalTeachers }}</div>
-                <div class="hm-stat-lbl">គ្រូបង្រៀន</div>
+                <div class="hm-stat-lbl">Teachers</div>
             </a>
             <a href="/courses" class="hm-stat" style="--sc:#6a1b9a;--sb:#f3e5f5;transition-delay:.14s">
                 <div class="hm-stat-ico"><i class="fas fa-book-open"></i></div>
                 <div class="hm-stat-num">{{ $totalCourses }}</div>
-                <div class="hm-stat-lbl">មុខវិជ្ជា</div>
+                <div class="hm-stat-lbl">Courses</div>
             </a>
             <a href="/class" class="hm-stat" style="--sc:#e65100;--sb:#fff3e0;transition-delay:.21s">
                 <div class="hm-stat-ico"><i class="fas fa-school"></i></div>
                 <div class="hm-stat-num">{{ $totalClasses }}</div>
-                <div class="hm-stat-lbl">ថ្នាក់រៀន</div>
+                <div class="hm-stat-lbl">Classrooms</div>
             </a>
         </div>
 
         {{-- ══ QUICK LINKS ══ --}}
         <div class="hm-sec-lbl">⚡ Quick Links</div>
-        <h2 class="hm-sec-title">ចូល​ <span>ប្រើ​ ភ្លាម</span></h2>
-        <p class="hm-sec-sub">Links សំខាន់​ ៗ​ ដែល​ ប្រើ​ ញឹក​ញាប់</p>
+        <h2 class="hm-sec-title">Quick <span>Access</span></h2>
+        <p class="hm-sec-sub">Important links used frequently</p>
 
-        <div class="hm-quick-grid" id="hmQuickGrid">    
+        <div class="hm-quick-grid" id="hmQuickGrid">
             <a href="/teachers" class="hm-quick-card" style="transition-delay:.10s">
                 <span class="hm-quick-ico">👩‍🏫</span>
                 <h5>Teachers</h5>
                 <p>View all teachers</p>
             </a>
-             <a href="/students" class="hm-quick-card">
+            <a href="/students" class="hm-quick-card">
                 <span class="hm-quick-ico">👨‍🎓</span>
                 <h5>Students</h5>
                 <p>List & manage</p>
@@ -352,7 +351,7 @@
                 <h5>Shop</h5>
                 <p>IT Books store</p>
             </a>
-             <a href="/services" class="hm-quick-card" style="transition-delay:.10s">
+            <a href="/services" class="hm-quick-card" style="transition-delay:.10s">
                 <span class="hm-quick-ico">🛎️</span>
                 <h5>Services</h5>
                 <p>School services</p>
@@ -377,8 +376,8 @@
         <div class="hm-gallery-inner">
             <div style="text-align:center;margin-bottom:2.5rem;">
                 <div class="hm-sec-lbl">📸 Gallery</div>
-                <h2 class="hm-sec-title">រូប​ភាព​ <span>សាលា​ យើង</span></h2>
-                <p class="hm-sec-sub">ថ្ងៃ​ ធម្មតា​ ក្នុង​ សាលា​ — ការ​ រៀន​ ការ​ បង្រៀន​ ហើយ​ ព្រឹត្តិការណ៍​</p>
+                <h2 class="hm-sec-title">Our School <span>Photos</span></h2>
+                <p class="hm-sec-sub">Everyday at school — learning, teaching and events</p>
             </div>
             <div class="hm-gallery-grid">
                 <div class="hm-photo hm-photo-large">
@@ -409,32 +408,32 @@
     <div class="hm-feat-wrap">
         <div style="text-align:center;margin-bottom:2.5rem;">
             <div class="hm-sec-lbl">✨ Features</div>
-            <h2 class="hm-sec-title">មុខ​ងារ​ <span>សំខាន់​ ៗ</span></h2>
+            <h2 class="hm-sec-title">Key <span>Features</span></h2>
         </div>
         <div class="hm-feat-grid">
             <div class="hm-feat">
                 <div class="hm-feat-icon" style="background:#e8eaf6;">📊</div>
-                <div><h4>Dashboard ស្ថិតិ</h4><p>Real-time stats ពី Database — students, teachers, scores ។</p></div>
+                <div><h4>Statistics Dashboard</h4><p>Real-time stats from the database — students, teachers, scores.</p></div>
             </div>
             <div class="hm-feat" style="transition-delay:.07s">
                 <div class="hm-feat-icon" style="background:#e0f2f1;">🔐</div>
-                <div><h4>Auth System</h4><p>Login / Register / Logout ជាមួយ Laravel Auth secure ។</p></div>
+                <div><h4>Auth System</h4><p>Login / Register / Logout with secure Laravel Auth.</p></div>
             </div>
             <div class="hm-feat" style="transition-delay:.14s">
                 <div class="hm-feat-icon" style="background:#fff3e0;">📱</div>
-                <div><h4>Responsive</h4><p>ប្រើ​ ទូរស័ព្ទ​ Tablet​ Desktop​ បាន​ ទាំង​ អស់​ ។</p></div>
+                <div><h4>Responsive</h4><p>Works on Phone, Tablet and Desktop.</p></div>
             </div>
             <div class="hm-feat" style="transition-delay:.21s">
                 <div class="hm-feat-icon" style="background:#f3e5f5;">🌙</div>
-                <div><h4>Dark Mode</h4><p>ប្ដូរ​ ពណ៌​ Dark / Light mode ចុច​ ១ ដង​ ។</p></div>
+                <div><h4>Dark Mode</h4><p>Switch Dark / Light mode with one click.</p></div>
             </div>
             <div class="hm-feat" style="transition-delay:.28s">
                 <div class="hm-feat-icon" style="background:#fce4ec;">🛒</div>
-                <div><h4>ហាង​ IT Books</h4><p>ទិញ​ សៀវភៅ IT​ ជា​ ភាសា​ ខ្មែរ​ Cart & Checkout ។</p></div>
+                <div><h4>IT Books Store</h4><p>Buy IT books, Cart & Checkout.</p></div>
             </div>
             <div class="hm-feat" style="transition-delay:.35s">
                 <div class="hm-feat-icon" style="background:#e8f5e9;">🌐</div>
-                <div><h4>២ ភាសា</h4><p>ភាសា​ ខ្មែរ​ ហើយ​ English​ switch​ ភ្លាម ។</p></div>
+                <div><h4>2 Languages</h4><p>Khmer and English — switch instantly.</p></div>
             </div>
         </div>
     </div>
@@ -442,12 +441,12 @@
     {{-- ══ CTA BANNER ══ --}}
     <div style="max-width:1200px;margin:0 auto;padding:0 2rem 4rem;">
         <div class="hm-cta" id="hmCta">
-            <h2>🚀 ចាប់​ ផ្ដើម​ ប្រើ​ ភ្លាម!</h2>
-            <p>Register ហើយ​ explore​ ប្រព័ន្ធ​ ទាំង​ អស់​ — ឥឡូវ​ នេះ​ !</p>
+            <h2>🚀 Get Started Now!</h2>
+            <p>Register and explore the entire system — right now!</p>
             <div class="hm-cta-btns">
-                <a href="/students" class="hm-btn-gold"><i class="fas fa-user-graduate"></i> ចូល​ មើល​ សិស្ស</a>
+                <a href="/students" class="hm-btn-gold"><i class="fas fa-user-graduate"></i> View Students</a>
                 @guest
-                <a href="{{ route('register') }}" class="hm-btn-outline"><i class="fas fa-user-plus"></i> Register ឥឡូវ</a>
+                <a href="{{ route('register') }}" class="hm-btn-outline"><i class="fas fa-user-plus"></i> Register Now</a>
                 @endguest
             </div>
         </div>

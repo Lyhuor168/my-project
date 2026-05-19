@@ -237,5 +237,5 @@ function resetAll() {
 }
 </script>
 </body>
-</html>--}}
+</html>
 

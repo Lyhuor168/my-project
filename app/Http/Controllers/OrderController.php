@@ -10,7 +10,6 @@ use Barryvdh\DomPDF\Facade\Pdf;
 
 class OrderController extends Controller
 {
-    // 📊 Dashboard + 🔍 Search + Filter
     public function index(Request $request)
     {
         $filter = $request->get('filter', 'today');
@@ -18,7 +17,6 @@ class OrderController extends Controller
 
         $query = Order::with('user');
 
-        // Filter by date
         switch ($filter) {
             case 'yesterday':
                 $query->whereDate('created_at', Carbon::yesterday());
@@ -35,7 +33,7 @@ class OrderController extends Controller
                 $query->whereDate('created_at', Carbon::today());
         }
 
-        // 🔍 Search
+        
         if ($search) {
             $query->where(function($q) use ($search) {
                 $q->where('customer_name', 'like', "%$search%")
@@ -54,7 +52,7 @@ class OrderController extends Controller
             'completed'     => $orders->where('status', 'completed')->count(),
         ];
 
-        // Chart data (7 ថ្ងៃចុងក្រោយ)
+        
         $chartData = [];
         for ($i = 6; $i >= 0; $i--) {
             $date = Carbon::now()->subDays($i);
@@ -75,7 +73,7 @@ class OrderController extends Controller
         ));
     }
 
-    // Form order
+    
     public function create($book_id)
     {
         $book = DB::table('books')->where('id', $book_id)->first();
@@ -83,7 +81,7 @@ class OrderController extends Controller
         return view('pages.order-create', compact('book'));
     }
 
-    // Save order
+    
     public function store(Request $request)
     {
         $validated = $request->validate([
@@ -105,14 +103,13 @@ class OrderController extends Controller
             ->with('success', 'ការទិញបានជោគជ័យ! ✅');
     }
 
-    // Invoice
     public function invoice($id)
     {
         $order = Order::with('user')->findOrFail($id);
         return view('pages.invoice', compact('order'));
     }
 
-    // 📄 Export PDF
+    
     public function exportPdf($id)
     {
         $order = Order::with('user')->findOrFail($id);
@@ -120,14 +117,13 @@ class OrderController extends Controller
         return $pdf->download('invoice-' . $order->id . '.pdf');
     }
 
-    // Update Status
+    
     public function updateStatus(Request $request, $id)
     {
         Order::findOrFail($id)->update(['status' => $request->status]);
         return back()->with('success', 'បានកែប្រែស្ថានភាព!');
     }
-
-    // លុប order
+    
     public function delete($id)
     {
         Order::findOrFail($id)->delete();
