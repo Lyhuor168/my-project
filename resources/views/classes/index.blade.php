@@ -2,7 +2,7 @@
 @section('content')
 <div class="d-flex justify-content-between align-items-center mb-4">
     <h4 class="fw-bold">ថ្នាក់រៀនទាំងអស់</h4>
-    <a href="{{ route('classes.create') }}" class="btn btn-primary"><i class="fas fa-plus me-2"></i>បង្កើតថ្នាក់</a>
+    <a href="{{ route('classes.create') }}" class="btn btn-primary">➕បង្កើតថ្នាក់</a>
 </div>
 @if(session('success'))
     <div class="alert alert-success">{{ session('success') }}</div>
@@ -16,12 +16,12 @@
             <span class="badge bg-primary mb-2">{{ $class->code }}</span>
             <p class="text-muted small mb-2">{{ $class->description ?? 'គ្មានការពិពណ៌នា' }}</p>
             <div class="d-flex justify-content-between align-items-center">
-                <span class="text-muted small"><i class="fas fa-users me-1"></i>{{ $class->students_count }}/{{ $class->max_students }} សិស្ស</span>
+                <span class="text-muted small">👥{{ $class->students_count }}/{{ $class->max_students }} សិស្ស</span>
                 <div class="d-flex gap-2">
-                    <a href="{{ route('classes.edit', $class->id) }}" class="btn btn-sm btn-outline-warning"><i class="fas fa-edit"></i></a>
+                    <a href="{{ route('classes.edit', $class->id) }}" class="btn btn-sm btn-outline-warning">✏️</a>
                     <form method="POST" action="{{ route('classes.destroy', $class->id) }}" onsubmit="return confirm('លុប?')">
                         @csrf @method('DELETE')
-                        <button class="btn btn-sm btn-outline-danger"><i class="fas fa-trash"></i></button>
+                        <button class="btn btn-sm btn-outline-danger">🗑️</button>
                     </form>
                 </div>
             </div>

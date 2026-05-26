@@ -2,9 +2,9 @@
 @section('title', 'កែសិស្ស')
 @section('content')
 <div class="d-flex justify-content-between align-items-center mb-4">
-    <h4 class="fw-bold"><i class="fas fa-user-edit me-2 text-warning"></i>កែព័ត៌មានសិស្ស</h4>
+    <h4 class="fw-bold">👤កែព័ត៌មានសិស្ស</h4>
     <a href="{{ route('students.index') }}" class="btn btn-outline-secondary">
-        <i class="fas fa-arrow-left me-1"></i> ត្រឡប់
+        ← ត្រឡប់
     </a>
 </div>
 <div class="card shadow-sm">
@@ -60,7 +60,7 @@
             </div>
             <div class="mt-4">
                 <button type="submit" class="btn btn-warning">
-                    <i class="fas fa-save me-1"></i> រក្សាទុក
+                    💾 រក្សាទុក
                 </button>
             </div>
         </form>

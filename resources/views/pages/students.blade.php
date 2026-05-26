@@ -96,13 +96,13 @@
 <div class="st-wrap">
 
     @if(session('success'))
-        <div class="st-alert st-alert-success"><i class="fas fa-check-circle"></i> {{ session('success') }}</div>
+        <div class="st-alert st-alert-success">✅ {{ session('success') }}</div>
     @endif
 
     {{-- Header --}}
     <div class="st-header">
         <div class="st-header-left">
-            <div class="st-icon"><i class="fas fa-user-graduate"></i></div>
+            <div class="st-icon">👨‍🎓</div>
             <div>
                 <div class="st-bread"><a href="/">Home</a> / <span>Students</span></div>
                 <h1 class="st-title">បញ្ជីសិស្ស</h1>
@@ -110,7 +110,7 @@
             </div>
         </div>
         <a href="{{ route('students.create') }}" class="btn-add">
-            <i class="fas fa-plus"></i> បន្ថែមសិស្ស
+            ➕ បន្ថែមសិស្ស
         </a>
     </div>
 
@@ -226,7 +226,7 @@
                                 </a>
                                 <button class="st-act del" title="Delete"
                                     onclick="stDel({{ $s->id }},'{{ addslashes($s->name) }}')">
-                                    <i class="fas fa-trash"></i>
+                                    🗑️
                                 </button>
                                 <form id="stDel{{ $s->id }}" class="del-form"
                                       action="{{ route('students.destroy', $s->id) }}"

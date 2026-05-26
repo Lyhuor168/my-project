@@ -75,14 +75,14 @@
 
     @if(session('success'))
         <div class="tc-alert tc-alert-success">
-            <i class="fas fa-check-circle"></i> {{ session('success') }}
+            ✅ {{ session('success') }}
         </div>
     @endif
 
     {{-- Header --}}
     <div class="tc-header">
         <div class="tc-header-left">
-            <div class="tc-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+            <div class="tc-icon">👨‍🏫</div>
             <div>
                 <div class="tc-bread"><a href="/">Home</a> / <span>Teachers</span></div>
                 <h1 class="tc-title">បញ្ជីគ្រូបង្រៀន</h1>
@@ -90,7 +90,7 @@
             </div>
         </div>
         <a href="{{ route('teachers.add') }}" class="btn-add">
-            <i class="fas fa-plus"></i> បន្ថែមគ្រូ
+            ➕ បន្ថែមគ្រូ
         </a>
     </div>
 
@@ -156,16 +156,16 @@
 
                 <div class="tc-info">
                     <div class="tc-info-row">
-                        <i class="fas fa-envelope"></i>
+                        📧
                         <span>{{ $t->email }}</span>
                     </div>
                     <div class="tc-info-row">
-                        <i class="fas fa-phone"></i>
+                        📞
                         <span>{{ $t->phone }}</span>
                     </div>
                     @if(!empty($t->address))
                     <div class="tc-info-row">
-                        <i class="fas fa-map-marker-alt"></i>
+                        📍
                         <span>{{ $t->address }}</span>
                     </div>
                     @endif
@@ -178,7 +178,7 @@
                     <a href="{{ route('teachers.delete', $t->id) }}"
                        class="tc-act tc-act-del"
                        onclick="return confirm('លុបគ្រូ &quot;{{ addslashes($t->name) }}&quot; មែនទេ?')">
-                        <i class="fas fa-trash"></i> លុប
+                        🗑️ លុប
                     </a>
                 </div>
             </div>

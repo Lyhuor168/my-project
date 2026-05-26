@@ -252,27 +252,27 @@
         <div style="display:inline-flex;gap:10px;flex-wrap:wrap;justify-content:center;">
             @guest
             <a href="{{ route('login') }}" style="background:#fff;color:#1a237e;padding:10px 28px;border-radius:6px;font-weight:700;text-decoration:none;font-size:0.9rem;display:inline-flex;align-items:center;gap:8px;">
-                🔑 Login
+                <i class="fas fa-sign-in-alt"></i> Login
             </a>
             <a href="{{ route('register') }}" style="background:#ffca28;color:#1a237e;padding:10px 28px;border-radius:6px;font-weight:700;text-decoration:none;font-size:0.9rem;display:inline-flex;align-items:center;gap:8px;">
-                ➕ Register
+                <i class="fas fa-user-plus"></i> Register
             </a>
             @endguest
             @auth
             <a href="/dashboard" style="background:#fff;color:#1a237e;padding:10px 28px;border-radius:6px;font-weight:700;text-decoration:none;font-size:0.9rem;display:inline-flex;align-items:center;gap:8px;">
-                📊 Dashboard
+                <i class="fas fa-tachometer-alt"></i> Dashboard
             </a>
             <a href="/students" style="background:#ffca28;color:#1a237e;padding:10px 28px;border-radius:6px;font-weight:700;text-decoration:none;font-size:0.9rem;display:inline-flex;align-items:center;gap:8px;">
-                👨‍🎓 Students
+                <i class="fas fa-user-graduate"></i> Students
             </a>
             <a href="/teachers" style="background:rgba(255,255,255,0.15);color:#fff;border:1.5px solid rgba(255,255,255,0.5);padding:10px 28px;border-radius:6px;font-weight:700;text-decoration:none;font-size:0.9rem;display:inline-flex;align-items:center;gap:8px;">
-                👨‍🏫 Teachers
+                <i class="fas fa-chalkboard-teacher"></i> Teachers
             </a>
             <a href="/classes" style="background:rgba(255,255,255,0.15);color:#fff;border:1.5px solid rgba(255,255,255,0.5);padding:10px 28px;border-radius:6px;font-weight:700;text-decoration:none;font-size:0.9rem;display:inline-flex;align-items:center;gap:8px;">
-                🏫 Classes
+                <i class="fas fa-school"></i> Classes
             </a>
             <a href="/courses" style="background:rgba(255,255,255,0.15);color:#fff;border:1.5px solid rgba(255,255,255,0.5);padding:10px 28px;border-radius:6px;font-weight:700;text-decoration:none;font-size:0.9rem;display:inline-flex;align-items:center;gap:8px;">
-                📚 Courses
+                <i class="fas fa-book-open"></i> Courses
             </a>
             @endauth
         </div>
@@ -287,10 +287,10 @@
             <h1>Modern <span class="gold">IT School</span> Management System</h1>
             <p>Manage students, teachers and courses with a modern Laravel system — easy to use in 2 languages.</p>
             <div class="hm-hero-btns">
-                <a href="/students" class="hm-btn-gold">👨‍🎓 View Students</a>
-                <a href="/services" class="hm-btn-outline">🔔 Services</a>
-                <a href="/contact" class="hm-btn-outline">📧 Contact</a>
-                <a href="/about" class="hm-btn-outline">ℹ️ About Us</a>
+                <a href="/students" class="hm-btn-gold"><i class="fas fa-user-graduate"></i> View Students</a>
+                <a href="/services" class="hm-btn-outline"><i class="fas fa-concierge-bell"></i> Services</a>
+                <a href="/contact" class="hm-btn-outline"><i class="fas fa-envelope"></i> Contact</a>
+                <a href="/about" class="hm-btn-outline"><i class="fas fa-info-circle"></i> About Us</a>
             </div>
         </div>
     </div>
@@ -298,45 +298,25 @@
     {{-- ══ STATS ══ --}}
     <div class="hm-body">
         <div class="hm-stats" id="hmStats">
-            <a href="/students" class="hm-stat" style="--sc:#2563EB;--sb:#EFF6FF;transition-delay:.00s">
-                <div class="hm-stat-ico" style="background:#DBEAFE;color:#2563EB;border-radius:14px;width:54px;height:54px;display:flex;align-items:center;justify-content:center;font-size:1.8rem;margin:0 auto 1rem;">
-                    👨‍🎓
-                </div>
-                <div class="hm-stat-num" style="font-size:2.6rem;font-weight:800;color:#2563EB;">{{ $totalStudents }}</div>
-                <div class="hm-stat-lbl" style="font-size:0.78rem;font-weight:700;color:#64748B;text-transform:uppercase;letter-spacing:0.08em;margin-top:4px;">សិស្សទាំងអស់</div>
-                <div style="margin-top:12px;display:inline-flex;align-items:center;gap:5px;background:#DBEAFE;color:#2563EB;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;">
-                    ↑ +12% ខែនេះ
-                </div>
+            <a href="/students" class="hm-stat" style="--sc:#1a237e;--sb:#e8eaf6;">
+                <div class="hm-stat-ico"><i class="fas fa-user-graduate"></i></div>
+                <div class="hm-stat-num">{{ $totalStudents }}</div>
+                <div class="hm-stat-lbl">Total Students</div>
             </a>
-            <a href="/teachers" class="hm-stat" style="--sc:#059669;--sb:#ECFDF5;transition-delay:.07s">
-                <div class="hm-stat-ico" style="background:#D1FAE5;color:#059669;border-radius:14px;width:54px;height:54px;display:flex;align-items:center;justify-content:center;font-size:1.8rem;margin:0 auto 1rem;">
-                    👨‍🏫
-                </div>
-                <div class="hm-stat-num" style="font-size:2.6rem;font-weight:800;color:#059669;">{{ $totalTeachers }}</div>
-                <div class="hm-stat-lbl" style="font-size:0.78rem;font-weight:700;color:#64748B;text-transform:uppercase;letter-spacing:0.08em;margin-top:4px;">គ្រូបង្រៀន</div>
-                <div style="margin-top:12px;display:inline-flex;align-items:center;gap:5px;background:#D1FAE5;color:#059669;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;">
-                    ✅ Active
-                </div>
+            <a href="/teachers" class="hm-stat" style="--sc:#00695c;--sb:#e0f2f1;transition-delay:.07s">
+                <div class="hm-stat-ico"><i class="fas fa-chalkboard-teacher"></i></div>
+                <div class="hm-stat-num">{{ $totalTeachers }}</div>
+                <div class="hm-stat-lbl">Teachers</div>
             </a>
-            <a href="/courses" class="hm-stat" style="--sc:#7C3AED;--sb:#F5F3FF;transition-delay:.14s">
-                <div class="hm-stat-ico" style="background:#EDE9FE;color:#7C3AED;border-radius:14px;width:54px;height:54px;display:flex;align-items:center;justify-content:center;font-size:1.8rem;margin:0 auto 1rem;">
-                    📚
-                </div>
-                <div class="hm-stat-num" style="font-size:2.6rem;font-weight:800;color:#7C3AED;">{{ $totalCourses }}</div>
-                <div class="hm-stat-lbl" style="font-size:0.78rem;font-weight:700;color:#64748B;text-transform:uppercase;letter-spacing:0.08em;margin-top:4px;">មុខវិជ្ជា</div>
-                <div style="margin-top:12px;display:inline-flex;align-items:center;gap:5px;background:#EDE9FE;color:#7C3AED;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;">
-                    ⭐ ឆ្នាំ 2026
-                </div>
+            <a href="/courses" class="hm-stat" style="--sc:#6a1b9a;--sb:#f3e5f5;transition-delay:.14s">
+                <div class="hm-stat-ico"><i class="fas fa-book-open"></i></div>
+                <div class="hm-stat-num">{{ $totalCourses }}</div>
+                <div class="hm-stat-lbl">Courses</div>
             </a>
-            <a href="/class" class="hm-stat" style="--sc:#D97706;--sb:#FFFBEB;transition-delay:.21s">
-                <div class="hm-stat-ico" style="background:#FEF3C7;color:#D97706;border-radius:14px;width:54px;height:54px;display:flex;align-items:center;justify-content:center;font-size:1.8rem;margin:0 auto 1rem;">
-                    🏫
-                </div>
-                <div class="hm-stat-num" style="font-size:2.6rem;font-weight:800;color:#D97706;">{{ $totalClasses }}</div>
-                <div class="hm-stat-lbl" style="font-size:0.78rem;font-weight:700;color:#64748B;text-transform:uppercase;letter-spacing:0.08em;margin-top:4px;">ថ្នាក់រៀន</div>
-                <div style="margin-top:12px;display:inline-flex;align-items:center;gap:5px;background:#FEF3C7;color:#D97706;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;">
-                    🚪 សកម្ម
-                </div>
+            <a href="/class" class="hm-stat" style="--sc:#e65100;--sb:#fff3e0;transition-delay:.21s">
+                <div class="hm-stat-ico"><i class="fas fa-school"></i></div>
+                <div class="hm-stat-num">{{ $totalClasses }}</div>
+                <div class="hm-stat-lbl">Classrooms</div>
             </a>
         </div>
 
@@ -464,9 +444,9 @@
             <h2>🚀 Get Started Now!</h2>
             <p>Register and explore the entire system — right now!</p>
             <div class="hm-cta-btns">
-                <a href="/students" class="hm-btn-gold">👨‍🎓 View Students</a>
+                <a href="/students" class="hm-btn-gold"><i class="fas fa-user-graduate"></i> View Students</a>
                 @guest
-                <a href="{{ route('register') }}" class="hm-btn-outline">➕ Register Now</a>
+                <a href="{{ route('register') }}" class="hm-btn-outline"><i class="fas fa-user-plus"></i> Register Now</a>
                 @endguest
             </div>
         </div>

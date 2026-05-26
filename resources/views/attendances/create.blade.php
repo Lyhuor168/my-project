@@ -2,9 +2,9 @@
 @section('title', 'កត់វត្តមាន')
 @section('content')
 <div class="d-flex justify-content-between align-items-center mb-4">
-    <h4 class="fw-bold"><i class="fas fa-plus-circle me-2 text-primary"></i>កត់វត្តមានសិស្ស</h4>
+    <h4 class="fw-bold">➕កត់វត្តមានសិស្ស</h4>
     <a href="{{ route('attendances.index') }}" class="btn btn-outline-secondary">
-        <i class="fas fa-arrow-left me-1"></i> ត្រឡប់
+        ← ត្រឡប់
     </a>
 </div>
 
@@ -79,7 +79,7 @@
 
     <div class="mt-3">
         <button type="submit" class="btn btn-primary">
-            <i class="fas fa-save me-1"></i> រក្សាទុក
+            💾 រក្សាទុក
         </button>
     </div>
 </form>

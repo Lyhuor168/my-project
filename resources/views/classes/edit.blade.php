@@ -2,7 +2,7 @@
 @section('content')
 <div class="card border-0 shadow-sm" style="max-width:600px;margin:0 auto;">
     <div class="card-body p-4">
-        <h4 class="fw-bold mb-4"><i class="fas fa-edit me-2 text-warning"></i>កែ Class</h4>
+        <h4 class="fw-bold mb-4">✏️កែ Class</h4>
         <form method="POST" action="{{ route('classes.update', $class->id) }}">
             @csrf @method('PUT')
             <div class="mb-3">
@@ -22,7 +22,7 @@
                 <input type="number" name="max_students" class="form-control" value="{{ $class->max_students }}" required>
             </div>
             <div class="d-flex gap-2">
-                <button type="submit" class="btn btn-warning"><i class="fas fa-save me-2"></i>រក្សាទុក</button>
+                <button type="submit" class="btn btn-warning">💾រក្សាទុក</button>
                 <a href="{{ route('classes.index') }}" class="btn btn-outline-secondary">បោះបង់</a>
             </div>
         </form>

@@ -73,7 +73,7 @@
 
     @if($errors->any())
         <div class="as-alert-err">
-            <i class="fas fa-exclamation-triangle"></i>
+            ⚠️
             មានបញ្ហា {{ $errors->count() }} ចំណុច — សូមពិនិត្យម្ដងទៀត
         </div>
     @endif
@@ -81,7 +81,7 @@
     {{-- Header --}}
     <div class="as-header">
         <div class="as-header-left">
-            <div class="as-icon"><i class="fas fa-user-plus"></i></div>
+            <div class="as-icon">➕</div>
             <div>
                 <div class="as-bread">
                     <a href="/">Home</a> /
@@ -93,7 +93,7 @@
             </div>
         </div>
         <a href="{{ route('students.index') }}" class="btn-back">
-            <i class="fas fa-arrow-left"></i> ត្រឡប់ក្រោយ
+            ← ត្រឡប់ក្រោយ
         </a>
     </div>
 
@@ -111,7 +111,7 @@
                 <div class="as-field">
                     <label>ឈ្មោះ <span class="req">*</span> <span class="hint">/ Full Name</span></label>
                     <div class="iw">
-                        <i class="fas fa-user fi"></i>
+                        👤
                         <input type="text" name="name" class="as-input @error('name') is-invalid @enderror"
                             value="{{ old('name') }}" placeholder="e.g. សុខ ដារ៉ា"/>
                     </div>
@@ -121,7 +121,7 @@
                 <div class="as-field">
                     <label>Email <span class="req">*</span></label>
                     <div class="iw">
-                        <i class="fas fa-envelope fi"></i>
+                        📧
                         <input type="email" name="email" class="as-input @error('email') is-invalid @enderror"
                             value="{{ old('email') }}" placeholder="example@school.edu"/>
                     </div>
@@ -141,7 +141,7 @@
                     <div class="as-field">
                         <label>ថ្ងៃខែឆ្នាំ <span class="req">*</span> <span class="hint">/ Date of Birth</span></label>
                         <div class="iw">
-                            <i class="fas fa-calendar fi"></i>
+                            📅
                             <input type="date" name="date_of_birth"
                                 class="as-input @error('date_of_birth') is-invalid @enderror"
                                 value="{{ old('date_of_birth') }}"/>
@@ -180,7 +180,7 @@
                 <div class="as-field">
                     <label>ពិន្ទុ <span class="req">*</span> <span class="hint">/ Score (0–100)</span></label>
                     <div class="iw">
-                        <i class="fas fa-star fi"></i>
+                        ⭐
                         <input type="number" name="score" id="scoreInput"
                             class="as-input @error('score') is-invalid @enderror"
                             value="{{ old('score') }}" placeholder="e.g. 85.5"
@@ -204,10 +204,10 @@
         {{-- Submit --}}
         <div class="as-submit-row">
             <button type="submit" class="btn-submit">
-                <i class="fas fa-save"></i> រក្សាទុក
+                💾 រក្សាទុក
             </button>
             <a href="{{ route('students.index') }}" class="btn-back">
-                <i class="fas fa-times"></i> លុបចោល
+                ❌ លុបចោល
             </a>
         </div>
 

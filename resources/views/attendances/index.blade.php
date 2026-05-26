@@ -2,9 +2,9 @@
 @section('title', 'វត្តមាន')
 @section('content')
 <div class="d-flex justify-content-between align-items-center mb-4">
-    <h4 class="fw-bold"><i class="fas fa-clipboard-check me-2 text-primary"></i>វត្តមានសិស្ស</h4>
+    <h4 class="fw-bold">✅វត្តមានសិស្ស</h4>
     <a href="{{ route('attendances.create') }}" class="btn btn-primary">
-        <i class="fas fa-plus me-1"></i> កត់វត្តមាន
+        ➕ កត់វត្តមាន
     </a>
 </div>
 
@@ -45,7 +45,7 @@
                     <td>{{ $i + 1 }}</td>
                     <td>{{ $att->student->name ?? '-' }}</td>
                     <td>{{ $att->schoolClass->name ?? '-' }}</td>
-                    <td>{{ $att->date }}</td>
+                    <td>{{ \Carbon\Carbon::parse($att->date)->format("d/m/Y") }}</td>
                     <td>
                         @if($att->status === 'present')
                             <span class="badge bg-success">Present</span>
@@ -60,7 +60,7 @@
                         <form method="POST" action="{{ route('attendances.destroy', $att->id) }}">
                             @csrf @method('DELETE')
                             <button class="btn btn-sm btn-danger" onclick="return confirm('លុបទេ?')">
-                                <i class="fas fa-trash"></i>
+                                🗑️
                             </button>
                         </form>
                     </td>

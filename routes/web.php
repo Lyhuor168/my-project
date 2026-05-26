@@ -17,25 +17,16 @@ use App\Http\Controllers\BookController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ScheduleController;
 use App\Http\Controllers\AttendanceController;
+use App\Http\Controllers\AttendanceRequestController;
 use App\Http\Controllers\SlideController;
 
-/*
-|--------------------------------------------------------------------------
-| 1. Language Switcher (Public)
-|--------------------------------------------------------------------------
-*/
+// ── Language
 Route::get('/lang/{locale}', function ($locale) {
-    if (in_array($locale, ['en', 'kh', 'km'])) {
-        session(['locale' => $locale]);
-    }
+    if (in_array($locale, ['en', 'kh', 'km'])) session(['locale' => $locale]);
     return redirect()->back();
 })->name('lang.switch');
 
-/*
-|--------------------------------------------------------------------------
-| 2. Public Pages
-|--------------------------------------------------------------------------
-*/
+// ── Public Pages
 Route::get('/', function () {
     return view('home', [
         'totalStudents' => DB::table('students')->count(),
@@ -47,21 +38,10 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('/services',   fn () => view('services'))->name('services');
-Route::get('/school',     fn () => view('school'))->name('school');
-Route::get('/class',      fn () => view('schedules.index'))->name('class');
 Route::get('/contact-us', fn () => view('contactus'))->name('contact');
-Route::get('/shop', [App\Http\Controllers\ShopController::class, 'index'])->name('shop')->middleware('auth');
-Route::get('/about-us',   fn () => view('aboutus', [
-    'name'  => 'lyhuo',
-    'email' => 'lyhuo@example.com',
-    'id'    => 19374,
-]))->name('about');
+Route::get('/about-us',   fn () => view('aboutus', ['name'=>'lyhuo','email'=>'lyhuo@example.com','id'=>19374]))->name('about');
 
-/*
-|--------------------------------------------------------------------------
-| 3. Guest Only
-|--------------------------------------------------------------------------
-*/
+// ── Guest Only
 Route::middleware('guest')->group(function () {
     Route::get('/login',     [AuthenticatedSessionController::class, 'create'])->name('login');
     Route::post('/login',    [AuthenticatedSessionController::class, 'store']);
@@ -70,15 +50,13 @@ Route::middleware('guest')->group(function () {
 });
 
 Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
-    ->middleware('auth')
-    ->name('logout');
+    ->middleware('auth')->name('logout');
 
-/*
-|--------------------------------------------------------------------------
-| 4. Auth Protected Routes
-|--------------------------------------------------------------------------
-*/
+// ── Auth Protected
 Route::middleware('auth')->group(function () {
+
+    // Shop
+    Route::get('/shop', [App\Http\Controllers\ShopController::class, 'index'])->name('shop');
 
     // Dashboard
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
@@ -107,12 +85,18 @@ Route::middleware('auth')->group(function () {
     Route::resource('schedules', ScheduleController::class);
 
     // Attendances
-    Route::resource('attendances', AttendanceController::class);
+    Route::get('/attendances/report', [AttendanceController::class, 'report'])->name('attendances.report');
+    Route::resource('attendances', AttendanceController::class)->except(['show']);
+
+    // Attendance Requests
+    Route::get('/requests',                                [AttendanceRequestController::class, 'index'])->name('attendance-requests.index');
+    Route::get('/requests/create',                         [AttendanceRequestController::class, 'create'])->name('attendance-requests.create');
+    Route::post('/requests',                               [AttendanceRequestController::class, 'store'])->name('attendance-requests.store');
+    Route::get('/requests/my',                             [AttendanceRequestController::class, 'myRequests'])->name('attendance-requests.my');
+    Route::post('/requests/{attendanceRequest}/review',    [AttendanceRequestController::class, 'review'])->name('attendance-requests.review');
 
     // Profile
-    Route::get('/profile', function () {
-        return view('pages.profile', ['user' => Auth::user()]);
-    })->name('profile');
+    Route::get('/profile', fn () => view('pages.profile', ['user' => Auth::user()]))->name('profile');
     Route::put('/profile/update',   [ProfileController::class, 'update'])->name('profile.update');
     Route::post('/profile/photo',   [ProfileController::class, 'updatePhoto'])->name('profile.photo');
     Route::delete('/profile/photo', [ProfileController::class, 'deletePhoto'])->name('profile.photo.delete');
@@ -161,8 +145,4 @@ Route::middleware('auth')->group(function () {
 
     // Slides
     Route::resource('slides', SlideController::class);
-
-    // Attendance (extra)
-    Route::post('/attendance',         [AttendanceController::class, 'store'])->name('attendance.store');
-    Route::put('/attendance/{id}',     [AttendanceController::class, 'update'])->name('attendance.update');
 });

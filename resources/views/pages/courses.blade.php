@@ -121,14 +121,14 @@
     {{-- Alert --}}
     @if(session('success'))
         <div class="ci-alert ci-alert-success">
-            <i class="fas fa-check-circle"></i> {{ session('success') }}
+            ✅ {{ session('success') }}
         </div>
     @endif
 
     {{-- Header --}}
     <div class="ci-header">
         <div class="ci-header-left">
-            <div class="ci-page-icon"><i class="fas fa-book-open"></i></div>
+            <div class="ci-page-icon">📚</div>
             <div>
                 <div class="ci-breadcrumb">
                     <a href="/">Home</a> / <span>Courses</span>
@@ -138,7 +138,7 @@
             </div>
         </div>
         <a href="{{ route('courses.create') }}" class="ci-btn-add">
-            <i class="fas fa-plus"></i> បន្ថែមមុខវិជ្ជា
+            ➕ បន្ថែមមុខវិជ្ជា
         </a>
     </div>
 
@@ -190,7 +190,7 @@
                         </a>
                         <button class="ci-act-btn del" title="Delete"
                             onclick="confirmDelete({{ $course->id }}, '{{ addslashes($course->name) }}')">
-                            <i class="fas fa-trash"></i>
+                            🗑️
                         </button>
                         {{-- Hidden delete form --}}
                         <form id="del-{{ $course->id }}" class="del-form"
@@ -209,24 +209,24 @@
 
                 <div class="ci-meta">
                     <div class="ci-meta-row">
-                        <i class="fas fa-chalkboard-teacher"></i>
+                        👨‍🏫
                         {{ $course->teacher }}
                     </div>
                     @if($course->room)
                     <div class="ci-meta-row">
-                        <i class="fas fa-door-open"></i>
+                        🚪
                         {{ $course->room }}
                     </div>
                     @endif
                     @if($course->time_start && $course->time_end)
                     <div class="ci-meta-row">
-                        <i class="fas fa-clock"></i>
+                        ⏰
                         {{ $course->time_start }} – {{ $course->time_end }}
                     </div>
                     @endif
                     @if($course->start_date)
                     <div class="ci-meta-row">
-                        <i class="fas fa-calendar-alt"></i>
+                        📅
                         {{ \Carbon\Carbon::parse($course->start_date)->format('d/m/Y') }}
                         @if($course->end_date)
                             → {{ \Carbon\Carbon::parse($course->end_date)->format('d/m/Y') }}

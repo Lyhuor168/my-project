@@ -75,7 +75,7 @@
 
     @if($errors->any())
         <div class="as-alert-err">
-            <i class="fas fa-exclamation-triangle"></i>
+            ⚠️
             មានបញ្ហា {{ $errors->count() }} ចំណុច — សូមពិនិត្យម្ដងទៀត
         </div>
     @endif
@@ -83,7 +83,7 @@
     {{-- Header --}}
     <div class="as-header">
         <div class="as-header-left">
-            <div class="as-icon"><i class="fas fa-user-edit"></i></div>
+            <div class="as-icon">👤</div>
             <div>
                 <div class="as-bread">
                     <a href="/">Home</a> /
@@ -95,13 +95,13 @@
             </div>
         </div>
         <a href="{{ route('students.index') }}" class="btn-back">
-            <i class="fas fa-arrow-left"></i> ត្រឡប់ក្រោយ
+            ← ត្រឡប់ក្រោយ
         </a>
     </div>
 
     {{-- Student ID badge --}}
     <div class="st-id-badge">
-        <i class="fas fa-id-card"></i> Student ID: #{{ $student->id }}
+        🪪 Student ID: #{{ $student->id }}
     </div>
 
     <form action="{{ route('students.update', $student->id) }}" method="POST">
@@ -120,7 +120,7 @@
                 <div class="as-field">
                     <label>ឈ្មោះ <span class="req">*</span> <span class="hint">/ Full Name</span></label>
                     <div class="iw">
-                        <i class="fas fa-user fi"></i>
+                        👤
                         <input type="text" name="name"
                             class="as-input @error('name') is-invalid @enderror"
                             value="{{ old('name', $student->name) }}"
@@ -133,7 +133,7 @@
                 <div class="as-field">
                     <label>Email <span class="req">*</span></label>
                     <div class="iw">
-                        <i class="fas fa-envelope fi"></i>
+                        📧
                         <input type="email" name="email"
                             class="as-input @error('email') is-invalid @enderror"
                             value="{{ old('email', $student->email) }}"
@@ -158,7 +158,7 @@
                     <div class="as-field">
                         <label>ថ្ងៃខែឆ្នាំ <span class="req">*</span></label>
                         <div class="iw">
-                            <i class="fas fa-calendar fi"></i>
+                            📅
                             <input type="date" name="date_of_birth"
                                 class="as-input @error('date_of_birth') is-invalid @enderror"
                                 value="{{ old('date_of_birth', \Carbon\Carbon::parse($student->date_of_birth)->format('Y-m-d')) }}"/>
@@ -201,7 +201,7 @@
                 <div class="as-field">
                     <label>ពិន្ទុ <span class="req">*</span> <span class="hint">/ Score (0–100)</span></label>
                     <div class="iw">
-                        <i class="fas fa-star fi"></i>
+                        ⭐
                         <input type="number" name="score" id="scoreInput"
                             class="as-input @error('score') is-invalid @enderror"
                             value="{{ old('score', $student->score) }}"
@@ -227,10 +227,10 @@
         {{-- Submit --}}
         <div class="as-submit-row">
             <button type="submit" class="btn-update">
-                <i class="fas fa-save"></i> រក្សាទុកការកែប្រែ
+                💾 រក្សាទុកការកែប្រែ
             </button>
             <a href="{{ route('students.index') }}" class="btn-back">
-                <i class="fas fa-times"></i> លុបចោល
+                ❌ លុបចោល
             </a>
         </div>
 

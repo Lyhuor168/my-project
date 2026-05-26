@@ -215,17 +215,17 @@
         {{-- Stats --}}
         <div class="sv-stats" id="svStats">
             <div class="sv-stat" style="--c:#1a237e;--bg:#e8eaf6;">
-                <div class="sv-stat-ico"><i class="fas fa-users"></i></div>
+                <div class="sv-stat-ico">👥</div>
                 <div class="sv-stat-num">850+</div>
                 <div class="sv-stat-lbl">សិស្សសរុប</div>
             </div>
             <div class="sv-stat" style="--c:#00695c;--bg:#e0f2f1;">
-                <div class="sv-stat-ico"><i class="fas fa-book-open"></i></div>
+                <div class="sv-stat-ico">📚</div>
                 <div class="sv-stat-num">20+</div>
                 <div class="sv-stat-lbl">មុខវិជ្ជា</div>
             </div>
             <div class="sv-stat" style="--c:#e65100;--bg:#fff3e0;">
-                <div class="sv-stat-ico"><i class="fas fa-chalkboard-teacher"></i></div>
+                <div class="sv-stat-ico">👨‍🏫</div>
                 <div class="sv-stat-num">15+</div>
                 <div class="sv-stat-lbl">គ្រូបង្រៀន</div>
             </div>
@@ -242,7 +242,7 @@
                 <div class="sv-feat-lbl">⭐ សេវាកម្មពិសេស</div>
                 <h2 class="sv-feat-h">ប្រព័ន្ធ​គ្រប់គ្រង​សាលា​ ទំនើប​ ២០២៦</h2>
                 <p class="sv-feat-p">ប្រព័ន្ធ​គ្រប់គ្រង​សិស្ស-គ្រូ ដ៏​ស្ទើរ​ស្ទាត់ ជាមួយ​ track​ ពិន្ទុ ហើយ​ report​ ច្បាស់ — ទាំងអស់​ ក្នុង​ platform​ ១ ។</p>
-                <a href="/students" class="sv-feat-btn"><i class="fas fa-arrow-right"></i> ចូល​មើល​សិស្ស</a>
+                <a href="/students" class="sv-feat-btn">→ ចូល​មើល​សិស្ស</a>
             </div>
             <div class="sv-feat-right">
                 <div class="sv-feat-item">
@@ -521,8 +521,8 @@
             <h2>🚀 ចាប់​ផ្ដើម​ប្រើ​ភ្លាម!</h2>
             <p>ចូល​ប្រើ​ប្រព័ន្ធ​គ្រប់គ្រង​សាលា​ ​ ។ ​ Register ​ ហើយ​ explore​ ​ features ​ ទាំង​អស់​ ។</p>
             <div class="sv-cta-btns">
-                <a href="/students" class="sv-cta-btn-main"><i class="fas fa-user-graduate"></i> ចូល​មើល​សិស្ស</a>
-                <a href="/register" class="sv-cta-btn-out"><i class="fas fa-user-plus"></i> Register ឥឡូវ</a>
+                <a href="/students" class="sv-cta-btn-main">👨‍🎓 ចូល​មើល​សិស្ស</a>
+                <a href="/register" class="sv-cta-btn-out">➕ Register ឥឡូវ</a>
             </div>
         </div>
 

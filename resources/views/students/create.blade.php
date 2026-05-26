@@ -2,9 +2,9 @@
 @section('title', 'បន្ថែមសិស្ស')
 @section('content')
 <div class="d-flex justify-content-between align-items-center mb-4">
-    <h4 class="fw-bold"><i class="fas fa-user-plus me-2 text-primary"></i>បន្ថែមសិស្សថ្មី</h4>
+    <h4 class="fw-bold">➕បន្ថែមសិស្សថ្មី</h4>
     <a href="{{ route('students.index') }}" class="btn btn-outline-secondary">
-        <i class="fas fa-arrow-left me-1"></i> ត្រឡប់
+        ← ត្រឡប់
     </a>
 </div>
 <div class="card shadow-sm">
@@ -58,7 +58,7 @@
             </div>
             <div class="mt-4">
                 <button type="submit" class="btn btn-primary">
-                    <i class="fas fa-save me-1"></i> រក្សាទុក
+                    💾 រក្សាទុក
                 </button>
             </div>
         </form>

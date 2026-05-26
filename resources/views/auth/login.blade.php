@@ -98,6 +98,22 @@ body{background:#0d0f1a;position:relative;}
 
     {{-- LOGIN FORM --}}
     <div class="fwrap">
+        {{-- Role Selector --}}
+        <div style="display:flex;gap:8px;margin-bottom:1.5rem;">
+            <button type="button" onclick="setRole('admin')" id="tab-admin"
+                style="flex:1;padding:10px;border-radius:10px;border:1.5px solid rgba(255,255,255,.15);background:rgba(255,255,255,.08);color:rgba(255,255,255,.7);font-size:.82rem;font-weight:700;cursor:pointer;transition:.2s;">
+                🛡️ Admin
+            </button>
+            <button type="button" onclick="setRole('teacher')" id="tab-teacher"
+                style="flex:1;padding:10px;border-radius:10px;border:1.5px solid rgba(255,255,255,.15);background:rgba(255,255,255,.08);color:rgba(255,255,255,.7);font-size:.82rem;font-weight:700;cursor:pointer;transition:.2s;">
+                👨‍🏫 គ្រូ
+            </button>
+            <button type="button" onclick="setRole('student')" id="tab-student"
+                style="flex:1;padding:10px;border-radius:10px;border:1.5px solid rgba(255,255,255,.15);background:rgba(255,255,255,.08);color:rgba(255,255,255,.7);font-size:.82rem;font-weight:700;cursor:pointer;transition:.2s;">
+                🎓 និស្សិត
+            </button>
+        </div>
+
         <div class="fhead">
             <h2>Sign <span>In</span></h2>
             <p>Access your student portal</p>
@@ -172,6 +188,37 @@ function loop(){ctx.clearRect(0,0,W,H);for(let i=0;i<dots.length;i++)for(let j=i
 dots.forEach(d=>{ctx.beginPath();ctx.arc(d.x,d.y,d.r,0,Math.PI*2);ctx.fillStyle=`rgba(${d.c},${d.a*.8})`;ctx.fill();d.x+=d.vx;d.y+=d.vy;if(d.x<0||d.x>W)d.vx*=-1;if(d.y<0||d.y>H)d.vy*=-1;});requestAnimationFrame(loop);}
 window.addEventListener('resize',()=>{resize();mkD();});resize();mkD();loop();
 function togPw(btn){const inp=btn.previousElementSibling;inp.type=inp.type==='text'?'password':'text';}
+</script>
+<script>
+function setRole(role) {
+    const tabs = ['admin','teacher','student'];
+    const emails = {
+        admin:   'admin@school.com',
+        teacher: 'teacher@school.com',
+        student: 'student@school.com'
+    };
+    const colors = {
+        admin:   '#ef4444',
+        teacher: '#3b9eff',
+        student: '#10b981'
+    };
+    tabs.forEach(t => {
+        const el = document.getElementById('tab-' + t);
+        if (t === role) {
+            el.style.background = colors[role];
+            el.style.borderColor = colors[role];
+            el.style.color = '#fff';
+        } else {
+            el.style.background = 'rgba(255,255,255,.08)';
+            el.style.borderColor = 'rgba(255,255,255,.15)';
+            el.style.color = 'rgba(255,255,255,.7)';
+        }
+    });
+    const emailInput = document.querySelector('input[name="email"]');
+    if (emailInput) emailInput.value = emails[role];
+}
+// Default Admin tab active
+setRole('admin');
 </script>
 </body>
 </html>

@@ -111,16 +111,16 @@
 
     {{-- Session alerts --}}
     @if(session('success'))
-        <div class="ac-alert ac-alert-success"><i class="fas fa-check-circle"></i> {{ session('success') }}</div>
+        <div class="ac-alert ac-alert-success">✅ {{ session('success') }}</div>
     @endif
     @if($errors->any())
-        <div class="ac-alert ac-alert-error"><i class="fas fa-exclamation-triangle"></i> មានបញ្ហា {{ $errors->count() }} ចំណុច — សូមពិនិត្យម្ដងទៀត</div>
+        <div class="ac-alert ac-alert-error">⚠️ មានបញ្ហា {{ $errors->count() }} ចំណុច — សូមពិនិត្យម្ដងទៀត</div>
     @endif
 
     {{-- Page header --}}
     <div class="ac-page-header">
         <div class="ac-page-header-left">
-            <div class="ac-page-icon"><i class="fas fa-plus-circle"></i></div>
+            <div class="ac-page-icon">➕</div>
             <div>
                 <div class="ac-breadcrumb">
                     <a href="/">Home</a> /
@@ -132,7 +132,7 @@
             </div>
         </div>
         <a href="{{ route('courses.index') }}" class="ac-btn-back">
-            <i class="fas fa-arrow-left"></i> ត្រឡប់ក្រោយ
+            ← ត្រឡប់ក្រោយ
         </a>
     </div>
 
@@ -154,7 +154,7 @@
                     <div class="ac-field" style="margin-bottom:1rem;">
                         <label>ឈ្មោះមុខវិជ្ជា <span class="req">*</span> <span class="hint">/ Course Name</span></label>
                         <div class="ac-input-icon-wrap">
-                            <i class="fas fa-book-open fi"></i>
+                            📚
                             <input type="text" name="name" id="courseName"
                                 class="ac-input @error('name') is-invalid @enderror"
                                 value="{{ old('name') }}" placeholder="e.g. Web Development..."
@@ -212,7 +212,7 @@
                         <div class="ac-field">
                             <label>គ្រូបង្រៀន <span class="req">*</span></label>
                             <div class="ac-input-icon-wrap">
-                                <i class="fas fa-chalkboard-teacher fi"></i>
+                                👨‍🏫
                                 <select name="teacher" class="ac-select @error('teacher') is-invalid @enderror" style="padding-left:34px;" onchange="liveUpdate()">
                                     <option value="">-- ជ្រើស --</option>
                                     @foreach(['លោក លីហួ','អ្នកគ្រូ សុភា','លោក ចាន់ត្រា','លោក ហេង បូរ៉ា','អ្នកគ្រូ ម៉ែន ច័ន្ទ','លោក វង់ ពីរោះ'] as $t)
@@ -237,7 +237,7 @@
                         <div class="ac-field">
                             <label>ថ្ងៃចាប់ផ្ដើម <span class="req">*</span></label>
                             <div class="ac-input-icon-wrap">
-                                <i class="fas fa-calendar-alt fi"></i>
+                                📅
                                 <input type="date" name="start_date"
                                     class="ac-input @error('start_date') is-invalid @enderror"
                                     value="{{ old('start_date') }}"/>
@@ -247,7 +247,7 @@
                         <div class="ac-field">
                             <label>ថ្ងៃបញ្ចប់</label>
                             <div class="ac-input-icon-wrap">
-                                <i class="fas fa-calendar-check fi"></i>
+                                📅
                                 <input type="date" name="end_date" class="ac-input" value="{{ old('end_date') }}"/>
                             </div>
                             @error('end_date') <div class="ac-err-msg">{{ $message }}</div> @enderror
@@ -266,7 +266,7 @@
                         <div class="ac-field">
                             <label>Max Students</label>
                             <div class="ac-input-icon-wrap">
-                                <i class="fas fa-users fi"></i>
+                                👥
                                 <input type="number" name="max_students" id="maxStudents" class="ac-input"
                                     value="{{ old('max_students') }}" placeholder="30" min="1" oninput="liveUpdate()"/>
                             </div>
@@ -291,7 +291,7 @@
                         <div class="ac-field">
                             <label>ម៉ោងចាប់</label>
                             <div class="ac-input-icon-wrap">
-                                <i class="fas fa-clock fi"></i>
+                                ⏰
                                 <input type="time" name="time_start" id="timeStart" class="ac-input"
                                     value="{{ old('time_start') }}" oninput="liveUpdate()"/>
                             </div>
@@ -299,7 +299,7 @@
                         <div class="ac-field">
                             <label>ម៉ោងបញ្ចប់</label>
                             <div class="ac-input-icon-wrap">
-                                <i class="fas fa-clock fi"></i>
+                                ⏰
                                 <input type="time" name="time_end" id="timeEnd" class="ac-input"
                                     value="{{ old('time_end') }}" oninput="liveUpdate()"/>
                             </div>
@@ -309,7 +309,7 @@
                     <div class="ac-field">
                         <label>បន្ទប់រៀន</label>
                         <div class="ac-input-icon-wrap">
-                            <i class="fas fa-door-open fi"></i>
+                            🚪
                             <input type="text" name="room" id="courseRoom" class="ac-input"
                                 value="{{ old('room') }}" placeholder="e.g. A101, Lab-B"
                                 oninput="liveUpdate()"/>
@@ -355,13 +355,13 @@
             {{-- Submit --}}
             <div class="ac-submit-row">
                 <button type="submit" class="ac-btn-submit">
-                    <i class="fas fa-save"></i> រក្សាទុក
+                    💾 រក្សាទុក
                 </button>
                 <button type="reset" class="ac-btn-reset" onclick="setTimeout(liveUpdate,50)">
                     <i class="fas fa-undo"></i> សម្អាត
                 </button>
                 <a href="{{ route('courses.index') }}" class="ac-btn-back">
-                    <i class="fas fa-times"></i> លុបចោល
+                    ❌ លុបចោល
                 </a>
             </div>
 

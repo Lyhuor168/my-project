@@ -6,7 +6,7 @@
     <title>@yield('title', 'School System')</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.4.0/css/all.css"/>
     <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;600;700&display=swap" rel="stylesheet"/>
     <style>
         body { font-family: 'Kantumruy Pro', sans-serif; margin: 0; padding: 0; }
@@ -29,10 +29,8 @@
         <div class="collapse navbar-collapse" id="mainNav">
             <ul class="navbar-nav mx-auto align-items-center gap-1">
                 <li class="nav-item"><a class="nav-link" href="/" style="color:#374151;font-weight:600;font-size:0.9rem;padding:8px 14px;border-radius:6px;">ទំព័រដើម</a></li>
-                <li class="nav-item"><a class="nav-link" href="/services" style="color:#374151;font-weight:600;font-size:0.9rem;padding:8px 14px;border-radius:6px;">សេវាកម្ម</a></li>
-                <li class="nav-item"><a class="nav-link" href="/class" style="color:#374151;font-weight:600;font-size:0.9rem;padding:8px 14px;border-radius:6px;">ថ្នាក់រៀន</a></li>
-                <li class="nav-item"><a class="nav-link" href="/shop" style="color:#374151;font-weight:600;font-size:0.9rem;padding:8px 14px;border-radius:6px;">ហាង</a></li>
                 <li class="nav-item"><a class="nav-link" href="/about-us" style="color:#374151;font-weight:600;font-size:0.9rem;padding:8px 14px;border-radius:6px;">អំពីយើង</a></li>
+                 <li class="nav-item"><a class="nav-link" href="/services" style="color:#374151;font-weight:600;font-size:0.9rem;padding:8px 14px;border-radius:6px;">សេវាកម្ម</a></li>
                 <li class="nav-item"><a class="nav-link" href="/contact-us" style="color:#374151;font-weight:600;font-size:0.9rem;padding:8px 14px;border-radius:6px;">ទំនាក់ទំនង</a></li>
                 @auth
                 <li class="nav-item"><a class="nav-link" href="/dashboard" style="color:#1565c0;font-weight:700;font-size:0.9rem;padding:8px 14px;border-radius:6px;background:#e8eaf6;">Dashboard</a></li>
@@ -63,12 +61,12 @@
                         {{ Auth::user()->name }}
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" style="border-radius:8px;border:1px solid #e5e7eb;">
-                        <li><a class="dropdown-item" href="/profile" style="font-size:0.88rem;"><i class="fas fa-user me-2 text-muted"></i>Profile</a></li>
+                        <li><a class="dropdown-item" href="/profile" style="font-size:0.88rem;">👤Profile</a></li>
                         <li><hr class="dropdown-divider"></li>
                         <li>
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
-                                <button class="dropdown-item text-danger" style="font-size:0.88rem;"><i class="fas fa-sign-out-alt me-2"></i>Logout</button>
+                                <button class="dropdown-item text-danger" style="font-size:0.88rem;">🚪Logout</button>
                             </form>
                         </li>
                     </ul>

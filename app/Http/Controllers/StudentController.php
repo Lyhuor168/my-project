@@ -59,7 +59,7 @@ class StudentController extends Controller
             'name'     => 'required|string|max:100',
             'class_id' => 'required|exists:school_classes,id',
             'email'    => 'required|email|unique:students,email,' . $student->id,
-            'dob'      => 'required|date',
+            'dob'      => 'nullable|date',
         ]);
 
             $student->update([

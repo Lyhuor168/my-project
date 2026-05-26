@@ -11,7 +11,7 @@
 
     {{-- Bootstrap & Font Awesome --}}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.4.0/css/all.css"/>
     <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 
     <style>
@@ -104,10 +104,10 @@
 <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
     <div class="container-fluid">
         <button class="btn btn-outline-light me-2 d-md-none" onclick="toggleSidebar()">
-            <i class="fas fa-bars"></i>
+            ☰
         </button>
         <a class="navbar-brand fw-bold" href="/">
-            <i class="fas fa-graduation-cap me-2"></i>SCHOOL SYSTEM
+            🎓SCHOOL SYSTEM
         </a>
 
         <div class="collapse navbar-collapse" id="navMain">
@@ -116,7 +116,7 @@
                 {{-- Language Switcher --}}
                 <li class="nav-item dropdown me-2">
                     <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
-                        <i class="fas fa-globe"></i> {{ app()->getLocale() == 'km' ? 'ភាសាខ្មែរ' : 'English' }}
+                        🌐 {{ app()->getLocale() == 'km' ? 'ភាសាខ្មែរ' : 'English' }}
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end shadow border-0">
                         <li><a class="dropdown-item" href="{{ url('lang/km') }}">ភាសាខ្មែរ</a></li>
@@ -126,7 +126,7 @@
 
                 <li class="nav-item">
                     <a class="nav-link {{ Request::is('/') ? 'active fw-semibold' : '' }}" href="/">
-                        <i class="fas fa-home"></i> Home
+                        🏠 Home
                     </a>
                 </li>
                     
@@ -134,7 +134,7 @@
                 {{-- Dashboard link in navbar --}}
                 <li class="nav-item">
                     <a class="nav-link {{ Request::is('dashboard*') ? 'active fw-semibold' : '' }}" href="/dashboard">
-                        <i class="fas fa-tachometer-alt"></i> Dashboard
+                        📊 Dashboard
                     </a>
                 </li>
 
@@ -156,12 +156,12 @@
                         <li><hr class="dropdown-divider my-1"/></li>
                         <li>
                             <a class="dropdown-item" href="/profile">
-                                <i class="fas fa-id-card me-2 text-primary"></i> Profile
+                                🪪 Profile
                             </a>
                         </li>
                         <li>
                             <a class="dropdown-item" href="/users">
-                                <i class="fas fa-users-cog me-2 text-primary"></i> Users
+                                ⚙️ Users
                             </a>
                         </li>
                         <li><hr class="dropdown-divider my-1"/></li>
@@ -169,7 +169,7 @@
                             <form action="{{ route('logout') }}" method="POST">
                                 @csrf
                                 <button type="submit" class="dropdown-item text-danger">
-                                    <i class="fas fa-sign-out-alt me-2"></i> Logout
+                                    🚪 Logout
                                 </button>
                             </form>
                         </li>
@@ -178,13 +178,13 @@
                 @else
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('login') }}">
-                        <i class="fas fa-sign-in-alt me-1"></i> Login
+                        🔑 Login
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('register') }}"
                        style="background:rgba(255,255,255,0.15);border-radius:8px;padding:0.4rem 1rem!important;">
-                        <i class="fas fa-user-plus me-1"></i> Register
+                        ➕ Register
                     </a>
                 </li>
                 @endauth
@@ -232,55 +232,77 @@
         {{-- ✅ Dashboard — Auth only --}}
         @auth
         <a href="/dashboard" class="{{ Request::is('dashboard*') ? 'active' : '' }}">
-            <i class="fas fa-tachometer-alt"></i> Dashboard
+            📊 Dashboard
         </a>
         @endauth
 
+        @if(Auth::check() && Auth::user()->role === 'admin')
         <a href="/teachers" class="{{ Request::is('teachers*') ? 'active' : '' }}">
-            <i class="fas fa-chalkboard-teacher"></i> Teachers
+            👨‍🏫 Teachers
         </a>
         <a href="/students" class="{{ Request::is('students*') ? 'active' : '' }}">
-            <i class="fas fa-user-graduate"></i> Students
+            👨‍🎓 Students
         </a>
-        <a href="/class" class="{{ Request::is('class*') ? 'active' : '' }}">
-            <i class="fas fa-chalkboard"></i> Class Schedule
+        <a href="/classes" class="{{ Request::is('classes*') ? 'active' : '' }}">
+            🏫 Class Schedule
         </a>
+        @endif
+        @if(Auth::user()->role === 'admin' || Auth::user()->role === 'teacher')
         <a href="/courses" class="{{ Request::is('courses*') ? 'active' : '' }}">
-            <i class="fas fa-book-open"></i> Courses
+            📚 Courses
         </a>
+        @endif
 
+        @if(Auth::user()->role === 'admin')
         <a href="/shop" class="{{ Request::is('shop*') ? 'active' : '' }}">
-            <i class="fas fa-shopping-bag"></i> Shop
+            🛍️ Shop
         </a>
-        <a href="/services" class="{{ Request::is('services*') ? 'active' : '' }}">
-            <i class="fas fa-concierge-bell"></i> Services
-        </a>
+        @endif
 
-        <a href="/about-us" class="{{ Request::is('about-us*') ? 'active' : '' }}">
-            <i class="fas fa-info-circle"></i> About Us
+        @if(Auth::user()->role === 'student')
+        <a href="{{ route('attendance-requests.create') }}" class="{{ Request::is('requests/create*') ? 'active' : '' }}">
+            📨 Submit Request
         </a>
-        <a href="/contact-us" class="{{ Request::is('contact-us*') ? 'active' : '' }}">
-            <i class="fas fa-envelope"></i> Contact
+        <a href="{{ route('attendance-requests.my') }}" class="{{ Request::is('requests*') ? 'active' : '' }}">
+            📋 My Requests
         </a>
+        <a href="{{ route('attendance-requests.index') }}" class="{{ Request::is('student/attendance*') ? 'active' : '' }}">
+            📅 Attendance History
+        </a>
+        @endif
+
+        @if(Auth::user()->role === 'teacher')
+        <a href="{{ route('attendances.create') }}" class="{{ Request::is('attendances/create*') ? 'active' : '' }}">
+            📝 Take Attendance
+        </a>
+        <a href="{{ route('attendances.report') }}" class="{{ Request::is('attendances/report*') ? 'active' : '' }}">
+            🖨️ Print Reports
+        </a>
+        <a href="{{ route('attendances.index') }}" class="{{ Request::is('teacher/requests*') ? 'active' : '' }}">
+            📬 Manage Requests
+        </a>
+        @endif
 
         @auth
         <a href="/profile" class="{{ Request::is('profile*') ? 'active' : '' }}">
-            <i class="fas fa-user-circle"></i> Profile
+            👤 Profile
         </a>
+        @if(Auth::user()->role === 'admin')
         <a href="/users" class="{{ Request::is('users*') ? 'active' : '' }}">
-            <i class="fas fa-users-cog"></i> Manage Users
+            ⚙️ Manage Users
         </a>
+        @endif
         <a href="#" class="logout-link"
            onclick="document.getElementById('sidebarLogout').submit();return false;">
-            <i class="fas fa-sign-out-alt"></i> Logout
+            🚪 Logout
         </a>
         <form id="sidebarLogout" method="POST" action="{{ route('logout') }}" style="display:none;">@csrf</form>
         @else
         <a href="{{ route('login') }}">
-            <i class="fas fa-sign-in-alt"></i> Login
+            🔑 Login
         </a>
         <a href="{{ route('register') }}">
-            <i class="fas fa-user-plus"></i> Register
+            ➕ Register
         </a>
         @endauth
 
@@ -290,13 +312,13 @@
     <main class="main-content">
         @if(session('success'))
             <div class="alert alert-success alert-dismissible fade show border-0 shadow-sm" role="alert">
-                <i class="fas fa-check-circle me-2"></i> {{ session('success') }}
+                ✅ {{ session('success') }}
                 <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
             </div>
         @endif
         @if(session('error'))
             <div class="alert alert-danger alert-dismissible fade show border-0 shadow-sm" role="alert">
-                <i class="fas fa-exclamation-circle me-2"></i> {{ session('error') }}
+                ⚠️ {{ session('error') }}
                 <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
             </div>
         @endif

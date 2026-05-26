@@ -66,10 +66,10 @@
 <div class="pf-wrap">
 
     @if(session('success'))
-        <div class="pf-alert pf-ok"><i class="fas fa-check-circle"></i> {{ session('success') }}</div>
+        <div class="pf-alert pf-ok">✅ {{ session('success') }}</div>
     @endif
     @if($errors->any())
-        <div class="pf-alert pf-err"><i class="fas fa-exclamation-triangle"></i> {{ $errors->first() }}</div>
+        <div class="pf-alert pf-err">⚠️ {{ $errors->first() }}</div>
     @endif
 
     <div class="pf-header">
@@ -96,14 +96,14 @@
                     <div class="pf-avatar-name">{{ $user->name }}</div>
                     <div class="pf-avatar-email">{{ $user->email }}</div>
                     <div class="pf-badge">
-                        <i class="fas fa-check-circle"></i>
+                        ✅
                         @if($user->email_verified_at) Verified @else Unverified @endif
                     </div>
 
                     {{-- Account info --}}
                     <div style="text-align:left;">
                         <div class="pf-info-row">
-                            <i class="fas fa-calendar-alt"></i>
+                            📅
                             <span class="pf-info-lbl">Joined</span>
                             <span>{{ $user->created_at ? $user->created_at->format('d/m/Y') : '—' }}</span>
                         </div>
@@ -135,7 +135,7 @@
                             <img id="previewImg" style="width:80px;height:80px;border-radius:50%;object-fit:cover;border:3px solid #1a237e;"/>
                         </div>
                         <button type="submit" class="pf-btn pf-btn-primary" style="width:100%;margin-top:0.75rem;justify-content:center;">
-                            <i class="fas fa-upload"></i> Upload Photo
+                            ⬆️ Upload Photo
                         </button>
                     </form>
                     @if($user->profile_photo_path)
@@ -143,7 +143,7 @@
                         @csrf @method('DELETE')
                         <button type="submit" class="pf-btn pf-btn-danger" style="width:100%;justify-content:center;"
                             onclick="return confirm('លុប​ រូប​ Profile​ មែន​ទេ?')">
-                            <i class="fas fa-trash"></i> លុប​ រូប
+                            🗑️ លុប​ រូប
                         </button>
                     </form>
                     @endif
@@ -165,7 +165,7 @@
                         <div class="pf-field">
                             <label>ឈ្មោះ *</label>
                             <div class="iw2">
-                                <i class="fas fa-user fi"></i>
+                                👤
                                 <input type="text" name="name" class="pf-input @error('name') err @enderror"
                                     value="{{ old('name', $user->name) }}" placeholder="Full Name"/>
                             </div>
@@ -174,14 +174,14 @@
                         <div class="pf-field">
                             <label>Email *</label>
                             <div class="iw2">
-                                <i class="fas fa-envelope fi"></i>
+                                📧
                                 <input type="email" name="email" class="pf-input @error('email') err @enderror"
                                     value="{{ old('email', $user->email) }}" placeholder="your@email.com"/>
                             </div>
                             @error('email') <div class="pf-err-msg">{{ $message }}</div> @enderror
                         </div>
                         <button type="submit" class="pf-btn pf-btn-primary">
-                            <i class="fas fa-save"></i> រក្សា​ ទុក
+                            💾 រក្សា​ ទុក
                         </button>
                     </form>
                 </div>
@@ -199,7 +199,7 @@
                         <div class="pf-field">
                             <label>Password​ បច្ចុប្បន្ន *</label>
                             <div class="iw2">
-                                <i class="fas fa-lock fi"></i>
+                                🔒
                                 <input type="password" name="current_password"
                                     class="pf-input @error('current_password') err @enderror"
                                     placeholder="Current password"/>
@@ -209,7 +209,7 @@
                         <div class="pf-field">
                             <label>Password​ ថ្មី *</label>
                             <div class="iw2">
-                                <i class="fas fa-key fi"></i>
+                                🔑
                                 <input type="password" name="password"
                                     class="pf-input @error('password') err @enderror"
                                     placeholder="New password (min 8)" id="newPw" oninput="pwStr(this.value)"/>
@@ -222,7 +222,7 @@
                         <div class="pf-field">
                             <label>បញ្ជាក់​ Password​ ថ្មី *</label>
                             <div class="iw2">
-                                <i class="fas fa-key fi"></i>
+                                🔑
                                 <input type="password" name="password_confirmation"
                                     class="pf-input" placeholder="Confirm new password"/>
                             </div>

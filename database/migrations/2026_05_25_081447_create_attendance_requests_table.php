@@ -8,23 +8,22 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('attendances', function (Blueprint $table) {
+        Schema::create('attendance_requests', function (Blueprint $table) {
             $table->id();
             $table->foreignId('student_id')->constrained('students')->onDelete('cascade');
             $table->foreignId('class_id')->constrained('school_classes')->onDelete('cascade');
             $table->date('date');
-            $table->enum('status', ['present', 'absent', 'late'])->default('present');
+            $table->string('reason');
+            $table->enum('status', ['pending', 'approved', 'rejected'])->default('pending');
+            $table->foreignId('reviewed_by')->nullable()->constrained('users')->onDelete('set null');
             $table->text('note')->nullable();
-            $table->foreignId('recorded_by')->constrained('users')->onDelete('cascade');
+            $table->timestamp('reviewed_at')->nullable();
             $table->timestamps();
-
-            
-            $table->unique(['student_id', 'class_id', 'date']);
         });
     }
 
     public function down(): void
     {
-        Schema::dropIfExists('attendances');
+        Schema::dropIfExists('attendance_requests');
     }
 };

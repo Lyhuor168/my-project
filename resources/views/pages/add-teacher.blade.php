@@ -60,7 +60,7 @@
 
     @if($errors->any())
         <div class="at-alert-err">
-            <i class="fas fa-exclamation-triangle"></i>
+            ⚠️
             មានបញ្ហា {{ $errors->count() }} ចំណុច — សូមពិនិត្យម្ដងទៀត
         </div>
     @endif
@@ -68,7 +68,7 @@
     {{-- Header --}}
     <div class="at-header">
         <div class="at-header-left">
-            <div class="at-icon"><i class="fas fa-user-plus"></i></div>
+            <div class="at-icon">➕</div>
             <div>
                 <div class="at-bread">
                     <a href="/">Home</a> /
@@ -80,7 +80,7 @@
             </div>
         </div>
         <a href="{{ route('teachers.index') }}" class="btn-back">
-            <i class="fas fa-arrow-left"></i> ត្រឡប់ក្រោយ
+            ← ត្រឡប់ក្រោយ
         </a>
     </div>
 
@@ -98,7 +98,7 @@
                 <div class="at-field">
                     <label>ឈ្មោះ <span class="req">*</span> <span class="hint">/ Full Name</span></label>
                     <div class="iw">
-                        <i class="fas fa-user fi"></i>
+                        👤
                         <input type="text" name="name"
                             class="at-input @error('name') is-invalid @enderror"
                             value="{{ old('name') }}"
@@ -112,7 +112,7 @@
                     <div class="at-field">
                         <label>Email <span class="req">*</span></label>
                         <div class="iw">
-                            <i class="fas fa-envelope fi"></i>
+                            📧
                             <input type="email" name="email"
                                 class="at-input @error('email') is-invalid @enderror"
                                 value="{{ old('email') }}"
@@ -123,7 +123,7 @@
                     <div class="at-field">
                         <label>ទូរស័ព្ទ <span class="req">*</span> <span class="hint">/ Phone</span></label>
                         <div class="iw">
-                            <i class="fas fa-phone fi"></i>
+                            📞
                             <input type="text" name="phone"
                                 class="at-input @error('phone') is-invalid @enderror"
                                 value="{{ old('phone') }}"
@@ -137,7 +137,7 @@
                 <div class="at-field">
                     <label>មុខវិជ្ជា <span class="req">*</span> <span class="hint">/ Subject</span></label>
                     <div class="iw">
-                        <i class="fas fa-book-open fi"></i>
+                        📚
                         <select name="subject"
                             class="at-select @error('subject') is-invalid @enderror">
                             <option value="">-- ជ្រើសមុខវិជ្ជា --</option>
@@ -198,10 +198,10 @@
         {{-- Submit --}}
         <div class="at-submit-row">
             <button type="submit" class="btn-submit">
-                <i class="fas fa-save"></i> រក្សាទុកគ្រូ
+                💾 រក្សាទុកគ្រូ
             </button>
             <a href="{{ route('teachers.index') }}" class="btn-back">
-                <i class="fas fa-times"></i> លុបចោល
+                ❌ លុបចោល
             </a>
         </div>
 

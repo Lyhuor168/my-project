@@ -95,16 +95,16 @@ table.us-tbl tr.hidden-row{display:none}
 <div class="us-wrap">
 
 @if(session('success'))
-<div class="us-alert alert-ok"><i class="fas fa-check-circle"></i> {{ session('success') }}</div>
+<div class="us-alert alert-ok">✅ {{ session('success') }}</div>
 @endif
 @if(session('error'))
-<div class="us-alert alert-err"><i class="fas fa-times-circle"></i> {{ session('error') }}</div>
+<div class="us-alert alert-err">❌ {{ session('error') }}</div>
 @endif
 
 {{-- Header --}}
 <div class="us-header">
     <div class="us-header-left">
-        <div class="us-icon"><i class="fas fa-users-cog"></i></div>
+        <div class="us-icon">⚙️</div>
         <div>
             <div class="us-bread"><a href="/">Home</a> / Users</div>
             <h1 class="us-title">គ្រប់គ្រង​ Users</h1>
@@ -112,7 +112,7 @@ table.us-tbl tr.hidden-row{display:none}
         </div>
     </div>
     <button class="btn-add" onclick="openModal()">
-        <i class="fas fa-user-plus"></i> Add User
+        ➕ Add User
     </button>
 </div>
 
@@ -138,7 +138,7 @@ table.us-tbl tr.hidden-row{display:none}
         <i class="fas fa-list" style="color:#1a237e"></i>
         <h5>តារាង​ Users</h5>
         <div class="us-srch-wrap">
-            <i class="fas fa-search"></i>
+            🔍
             <input type="text" class="us-srch" id="usSearch" placeholder="ស្វែងរក..." oninput="usFilter()"/>
         </div>
     </div>
@@ -192,7 +192,7 @@ table.us-tbl tr.hidden-row{display:none}
                         <button class="us-act"
                             title="លុប"
                             onclick="confirmDelete('{{ addslashes($u->name) }}', '{{ $u->id }}')">
-                            <i class="fas fa-trash"></i>
+                            🗑️
                         </button>
                         <form id="del_{{ $u->id }}" class="del-form"
                               action="{{ route('users.destroy', $u->id) }}" method="POST">
@@ -219,11 +219,11 @@ table.us-tbl tr.hidden-row{display:none}
     <div class="modal-box">
         <div class="modal-head">
             <div style="width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#1a237e,#3949ab);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.95rem">
-                <i class="fas fa-user-plus"></i>
+                ➕
             </div>
             <h4>Add User​ ថ្មី</h4>
             <button class="modal-close" onclick="closeModal()">
-                <i class="fas fa-times"></i>
+                ❌
             </button>
         </div>
         <form method="POST" action="{{ route('users.store') }}" id="addForm">
@@ -234,7 +234,7 @@ table.us-tbl tr.hidden-row{display:none}
                 <div class="mf">
                     <label>ឈ្មោះ *</label>
                     <div class="iw">
-                        <i class="fas fa-user fi"></i>
+                        👤
                         <input type="text" name="name" class="m-input {{ $errors->has('name') ? 'is-invalid' : '' }}"
                                value="{{ old('name') }}" placeholder="ឈ្មោះ​ ពេញ" required/>
                     </div>
@@ -245,7 +245,7 @@ table.us-tbl tr.hidden-row{display:none}
                 <div class="mf">
                     <label>Email *</label>
                     <div class="iw">
-                        <i class="fas fa-envelope fi"></i>
+                        📧
                         <input type="email" name="email" class="m-input {{ $errors->has('email') ? 'is-invalid' : '' }}"
                                value="{{ old('email') }}" placeholder="user@email.com" required/>
                     </div>
@@ -268,7 +268,7 @@ table.us-tbl tr.hidden-row{display:none}
                 <div class="mf">
                     <label>Password *</label>
                     <div class="iw">
-                        <i class="fas fa-lock fi"></i>
+                        🔒
                         <input type="password" name="password" id="mPw" class="m-input {{ $errors->has('password') ? 'is-invalid' : '' }}"
                                placeholder="Min. 8 characters" required oninput="pwStr(this.value)"/>
                     </div>
@@ -281,7 +281,7 @@ table.us-tbl tr.hidden-row{display:none}
                 <div class="mf" style="margin-bottom:0">
                     <label>Confirm Password *</label>
                     <div class="iw">
-                        <i class="fas fa-lock fi"></i>
+                        🔒
                         <input type="password" name="password_confirmation" class="m-input"
                                placeholder="Repeat password" required/>
                     </div>
@@ -290,10 +290,10 @@ table.us-tbl tr.hidden-row{display:none}
             </div>
             <div class="modal-foot">
                 <button type="button" class="btn-cancel" onclick="closeModal()">
-                    <i class="fas fa-times"></i> Cancel
+                    ❌ Cancel
                 </button>
                 <button type="submit" class="btn-save">
-                    <i class="fas fa-user-plus"></i> Add User
+                    ➕ Add User
                 </button>
             </div>
         </form>
@@ -305,10 +305,10 @@ table.us-tbl tr.hidden-row{display:none}
     <div class="modal-box" style="max-width:400px">
         <div class="modal-head">
             <div style="width:36px;height:36px;border-radius:10px;background:#ffebee;color:#c62828;display:flex;align-items:center;justify-content:center;font-size:.95rem">
-                <i class="fas fa-trash"></i>
+                🗑️
             </div>
             <h4 style="color:#c62828">លុប User</h4>
-            <button class="modal-close" onclick="closeDelModal()"><i class="fas fa-times"></i></button>
+            <button class="modal-close" onclick="closeDelModal()">❌</button>
         </div>
         <div class="modal-body" style="padding:1.5rem">
             <p style="font-size:.9rem;color:#374151;margin:0">
@@ -320,11 +320,11 @@ table.us-tbl tr.hidden-row{display:none}
         </div>
         <div class="modal-foot">
             <button type="button" class="btn-cancel" onclick="closeDelModal()">
-                <i class="fas fa-times"></i> Cancel
+                ❌ Cancel
             </button>
             <button type="button" class="btn-save" id="delConfirmBtn"
                     style="background:linear-gradient(135deg,#c62828,#e53935);box-shadow:0 5px 18px rgba(198,40,40,.25)">
-                <i class="fas fa-trash"></i> លុប
+                🗑️ លុប
             </button>
         </div>
     </div>

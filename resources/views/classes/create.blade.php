@@ -2,7 +2,7 @@
 @section('content')
 <div class="card border-0 shadow-sm" style="max-width:600px;margin:0 auto;">
     <div class="card-body p-4">
-        <h4 class="fw-bold mb-4"><i class="fas fa-plus-circle me-2 text-primary"></i>បង្កើត Class ថ្មី</h4>
+        <h4 class="fw-bold mb-4">➕បង្កើត Class ថ្មី</h4>
         <form method="POST" action="{{ route('classes.store') }}">
             @csrf
             <div class="mb-3">
@@ -22,7 +22,7 @@
                 <input type="number" name="max_students" class="form-control" value="30" min="1" required>
             </div>
             <div class="d-flex gap-2">
-                <button type="submit" class="btn btn-primary"><i class="fas fa-save me-2"></i>រក្សាទុក</button>
+                <button type="submit" class="btn btn-primary">💾រក្សាទុក</button>
                 <a href="{{ route('classes.index') }}" class="btn btn-outline-secondary">បោះបង់</a>
             </div>
         </form>
