@@ -16,7 +16,7 @@ class AttendanceRequestController extends Controller
         $user    = Auth::user();
         $student = Student::where('email', $user->email)->first();
         $classes = SchoolClass::all();
-        return view('attendance_requests.create', compact('student', 'classes'));
+        return view('student.requests.create', compact('student', 'classes'));
     }
 
     public function store(Request $request)
@@ -51,7 +51,7 @@ class AttendanceRequestController extends Controller
                 ->where('student_id', $student->id)
                 ->orderByDesc('created_at')->get()
             : collect();
-        return view('attendance_requests.my', compact('requests', 'student'));
+        return view('student.requests.index', compact('requests', 'student'));
     }
 
     public function index()
@@ -63,7 +63,7 @@ class AttendanceRequestController extends Controller
         $requests = AttendanceRequest::with('student', 'schoolClass', 'reviewer')
             ->orderByRaw("FIELD(status, 'pending', 'approved', 'rejected')")
             ->orderByDesc('created_at')->get();
-        return view('attendance_requests.index', compact('requests', 'role'));
+        return view('student.requests.index', compact('requests', 'role'));
     }
 
     public function review(Request $request, AttendanceRequest $attendanceRequest)

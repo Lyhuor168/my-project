@@ -3,11 +3,11 @@
 @section("content")
 <div class="d-flex justify-content-between align-items-center mb-4">
     <h4 class="fw-bold">📨Submit Attendance Request</h4>
-    <a href="{{ route("requests.index") }}" class="btn btn-outline-secondary">← Back</a>
+    <a href="{{ route('attendance-requests.my') }}" class="btn btn-outline-secondary">← Back</a>
 </div>
 <div class="card shadow-sm" style="border-radius:14px;border:none;">
     <div class="card-body p-4">
-        <form method="POST" action="{{ route("requests.store") }}">
+        <form method="POST" action="{{ route('attendance-requests.store') }}">
             @csrf
             <div class="row g-3">
                 <div class="col-md-6">

@@ -3,7 +3,7 @@
 @section("content")
 <div class="d-flex justify-content-between align-items-center mb-4">
     <h4 class="fw-bold">📋សំណើវត្តមានរបស់ខ្ញុំ</h4>
-    <a href="{{ route("requests.create") }}" class="btn btn-primary">➕ Submit Request</a>
+    <a href="{{ route("attendance-requests.create") }}" class="btn btn-primary">➕ Submit Request</a>
 </div>
 <div class="card shadow-sm" style="border-radius:14px;border:none;">
     <div class="card-body p-0">

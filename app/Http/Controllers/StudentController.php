@@ -66,7 +66,7 @@ class StudentController extends Controller
             'name'          => $request->name,
             'class_id'      => $request->class_id,
             'email'         => $request->email,
-            'date_of_birth' => $request->dob, // យកតម្លៃពី Form (dob) ទៅដាក់ក្នុង DB (date_of_birth)
+            'date_of_birth' => $request->dob ?? null, // យកតម្លៃពី Form (dob) ទៅដាក់ក្នុង DB (date_of_birth)
             'gender'        => $request->gender,
             'phone'         => $request->phone,
             'address'       => $request->address,
