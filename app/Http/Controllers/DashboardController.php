@@ -31,23 +31,53 @@ class DashboardController extends Controller
             'user_name'       => Auth::user()->name,
             'user_email'      => Auth::user()->email,
             'user_id'         => Auth::id(),
-            'user_count'      => User::count(),
+            'user_count'      => User::query()->count(),
             'top_students'    => DB::table('students')->orderByDesc('score')->limit(5)->get(),
-            'recent_users'    => User::latest()->limit(5)->get(),
+            'recent_users'    => User::query()->latest()->limit(5)->get(),
             'recent_teachers' => DB::table('teachers')->latest()->limit(5)->get(),
             'recent_courses'  => DB::table('courses')->latest()->limit(5)->get(),
         ];
 
+        $presentToday = \App\Models\Attendance::whereDate('date', today())->where('status', 'present')->count();
+        $absentToday = \App\Models\Attendance::whereDate('date', today())->where('status', 'absent')->count();
+        $lateToday = \App\Models\Attendance::whereDate('date', today())->where('status', 'late')->count();
+        $totalToday = $presentToday + $absentToday + $lateToday;
+        $attendanceRate = $totalToday > 0 ? round($presentToday / $totalToday * 100) : 0;
+
+        $classSummary = \App\Models\SchoolClass::withCount(['students as present' => function($q) {
+                $q->join('attendances', 'students.id', '=', 'attendances.student_id')
+                    ->where('attendances.date', today())
+                    ->where('attendances.status', 'present');
+            }])
+            ->get()
+            ->map(function($c) use ($totalToday) {
+                $rate = $totalToday > 0 ? round($c->present / $totalToday * 100) : 0;
+                return ['name' => $c->name, 'rate' => $rate];
+            })->toArray();
+
+        $recentAttendance = \App\Models\Attendance::with('student', 'schoolClass')
+            ->whereDate('date', today())->latest()->limit(10)->get();
+
+        $weekTrend = collect(range(0, 6))->map(function($i) {
+            $date = today()->subDays(6 - $i);
+            $total = \App\Models\Attendance::whereDate('date', $date)->count();
+            $present = \App\Models\Attendance::whereDate('date', $date)->where('status', 'present')->count();
+            return ['day' => $date->format('D'), 'rate' => $total > 0 ? round($present / $total * 100) : 0];
+        });
+
         $recentStudents = \App\Models\Student::with('schoolClass')->latest()->limit(10)->get();
+
+        $alerts = collect();
 
         return view('pages.dashboard', compact(
             'stats','recentStudents',
             'totalStudents','totalTeachers',
-            'totalCourses','totalClasses','totalSchedules'
+            'totalCourses','totalClasses','totalSchedules',
+            'presentToday','absentToday','lateToday','totalToday','attendanceRate',
+            'classSummary','recentAttendance','weekTrend','alerts'
         ));
     }
 
-    // ═══ TEACHER DASHBOARD ═══
     private function teacherDashboard()
     {
         $teacher = DB::table('teachers')->where('email', Auth::user()->email)->first();
@@ -77,7 +107,6 @@ class DashboardController extends Controller
         ));
     }
 
-    // ═══ STUDENT DASHBOARD ═══
     private function studentDashboard()
     {
         $student = \App\Models\Student::where('email', Auth::user()->email)->first();

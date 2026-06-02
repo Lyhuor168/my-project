@@ -21,7 +21,7 @@ class StudentSeeder extends Seeder
             ]   
         );
 
-        $classId = SchoolClass::first()?->id ?? null;
+       $classId = SchoolClass::query()->first()?->id;
 
         $students = [
             ['name'=>'លី មករា','email'=>'student@university.edu','phone'=>'012345678','gender'=>'male','date_of_birth'=>'2003-05-10','address'=>'ភ្នំពេញ','score'=>85.5,'class_id'=>$classId],
