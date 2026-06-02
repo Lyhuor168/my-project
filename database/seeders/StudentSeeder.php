@@ -18,7 +18,7 @@ class StudentSeeder extends Seeder
                 'name'     => 'លី មករា',
                 'password' => Hash::make('student1234'),
                 'role'     => 'student',
-            ]
+            ]   
         );
 
         $classId = SchoolClass::first()?->id ?? null;

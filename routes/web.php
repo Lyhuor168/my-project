@@ -86,6 +86,10 @@ Route::middleware('auth')->group(function () {
 
     // Attendances
     Route::get('/attendances/report', [AttendanceController::class, 'report'])->name('attendances.report');
+    Route::get('/attendances/daily', [AttendanceController::class, 'daily'])->name('attendances.daily');
+    Route::get('/attendances/student-report', [AttendanceController::class, 'studentReport'])->name('attendances.student-report');
+    Route::get('/attendances/daily', [AttendanceController::class, 'daily'])->name('attendances.daily');
+    Route::get('/attendances/student-report', [AttendanceController::class, 'studentReport'])->name('attendances.student-report');
     Route::resource('attendances', AttendanceController::class)->except(['show']);
 
     // Attendance Requests

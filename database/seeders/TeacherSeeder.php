@@ -14,7 +14,7 @@ class TeacherSeeder extends Seeder
     {
         User::create([
             'name'     => 'ចាន់ សុភា',
-            'email'    => 'teacher@university.edu',
+            'email'    => 'teacher@school.com',
             'password' => Hash::make('teacher1234'),
             'role'     => 'teacher',
         ]);
