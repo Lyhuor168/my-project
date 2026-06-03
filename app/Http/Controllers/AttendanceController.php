@@ -13,9 +13,9 @@ class AttendanceController extends Controller
     // Student មើល attendance ផ្ទាល់ខ្លួន
     public function studentAttendance()
     {
-        $student = auth()->user()->student;
+        $student = Auth::user()->student;
 
-        $attendances = Attendance::where('student_id', $student->id)
+        $attendances = Attendance::where('student_id', '=', $student->id)
             ->latest()
             ->get();
 
@@ -30,8 +30,8 @@ class AttendanceController extends Controller
         $selectedDate  = $request->date ?? today()->toDateString();
 
         $attendances = Attendance::with('student', 'schoolClass')
-            ->when($selectedClass, fn($q) => $q->where('class_id', $selectedClass))
-            ->where('date', $selectedDate)
+            ->when($selectedClass, fn($q) => $q->where('class_id', '=', $selectedClass))
+            ->where('date', '=', $selectedDate)
             ->get();
 
         return view('attendances.index', compact(
@@ -52,7 +52,7 @@ class AttendanceController extends Controller
         $date = $request->date ?? today()->toDateString();
 
         $students = $selectedClass
-            ? Student::where('class_id', $selectedClass)->get()
+            ? Student::where('class_id', '=', $selectedClass)->get()
             : collect();
 
         return view('attendances.create', compact(

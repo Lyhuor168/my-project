@@ -219,7 +219,7 @@ table.us-tbl tr.hidden-row{display:none}
     <div class="modal-box">
         <div class="modal-head">
             <div style="width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#1a237e,#3949ab);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.95rem">
-                ➕
+                <i class="fa-solid fa-plus" style="color: white"></i>
             </div>
             <h4>Add User​ ថ្មី</h4>
             <button class="modal-close" onclick="closeModal()">
@@ -293,7 +293,7 @@ table.us-tbl tr.hidden-row{display:none}
                     ❌ Cancel
                 </button>
                 <button type="submit" class="btn-save">
-                    ➕ Add User
+                    <i class="fa-solid fa-plus" style="color: white"></i> Add User
                 </button>
             </div>
         </form>

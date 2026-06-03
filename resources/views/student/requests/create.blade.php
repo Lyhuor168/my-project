@@ -12,12 +12,15 @@
             <div class="row g-3">
                 <div class="col-md-6">
                     <label class="form-label fw-bold">ថ្នាក់រៀន</label>
-                    <select name="class_id" class="form-select" required>
-                        <option value="">-- ជ្រើសថ្នាក់ --</option>
+                    <select name="class_id" class="form-select" required disabled>
                         @foreach($classes as $class)
-                        <option value="{{ $class->id }}">{{ $class->name }}</option>
+                        @if($myClass == $class->id)
+                        <option value="{{ $class->id }}" selected>{{ $class->name }}</option>
+                        @endif
                         @endforeach
                     </select>
+                    <input type="hidden" name="class_id" value="{{ $myClass }}">
+                    <small class="text-muted">ថ្នាក់របស់អ្នក — មិនអាចផ្លាស់ប្តូរបាន</small>
                 </div>
                 <div class="col-md-6">
                     <label class="form-label fw-bold">ថ្ងៃខែ</label>

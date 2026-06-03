@@ -1,5 +1,11 @@
 <?php
 
+\
+
+
+
+
+
 namespace App\Http\Controllers;
 
 use App\Models\AttendanceRequest;
@@ -34,9 +40,6 @@ class AttendanceRequestController extends Controller
         $student = Student::where('email', $user->email)->first();
         if (!$student) {
             return redirect()->back()->with('error', 'គ្មាន Student profile!');
-        }
-        if ($student->class_id != $request->class_id) {
-            return redirect()->back()->with('error', '⚠️ អ្នកអាចដាក់សំណើបានតែថ្នាក់របស់អ្នកប៉ុណ្ណោះ!');
         }
         AttendanceRequest::create([
             'student_id' => $student->id,

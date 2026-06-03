@@ -3,7 +3,9 @@
 @section("content")
 <div class="d-flex justify-content-between align-items-center mb-4">
     <h4 class="fw-bold">📋សំណើវត្តមានរបស់ខ្ញុំ</h4>
+    @if(Auth::user()->role === "student")
     <a href="{{ route("attendance-requests.create") }}" class="btn btn-primary">➕ Submit Request</a>
+    @endif
 </div>
 <div class="card shadow-sm" style="border-radius:14px;border:none;">
     <div class="card-body p-0">
@@ -27,7 +29,7 @@
                             <span class="badge bg-danger">❌ Rejected</span>
                         @endif
                     </td>
-                    <td>{{ $req->note ?? "-" }}</td>
+                    <td>{{ $req->review_note ?? "-" }}</td>
                 </tr>
                 @empty
                 <tr><td colspan="6" class="text-center text-muted py-4">មិនទាន់មានសំណើ</td></tr>
